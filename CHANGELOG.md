@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/lusend/website/compare/v1.3.0...v1.3.1) (2021-11-02)
+
+
+### Bug Fixes
+
+* fixed assets bug ([03cae71](https://github.com/lusend/website/commit/03cae71a303ad86b8e11850d9ebbef9e7eb6b99e))
+
 ## [1.3.0](https://github.com/lusend/website/compare/v1.2.1...v1.3.0) (2021-11-02)
 
 
