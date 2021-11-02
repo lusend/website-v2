@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/lusend/website/compare/v1.3.1...v1.4.0) (2021-11-02)
+
+
+### Features
+
+* :sparkles: updated console statement ([d3bedd8](https://github.com/lusend/website/commit/d3bedd8a09687cf92a34bf3745baf241996a3390))
+
 ### [1.3.1](https://github.com/lusend/website/compare/v1.3.0...v1.3.1) (2021-11-02)
 
 
