@@ -8,7 +8,7 @@ styles: [styles]
 
 <script>
   //Start Script
-  console.log('hi');
+  console.log('hello');
   //End Script
 </script>
 
