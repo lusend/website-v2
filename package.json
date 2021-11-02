@@ -69,7 +69,7 @@
         "@semantic-release/git",
         {
           "assets": [
-            "dist/**",
+            "dist",
             "package.json",
             "package-lock.json",
             "CHANGELOG.md"
