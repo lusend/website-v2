@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/lusend/website/compare/v1.4.0...v1.4.1) (2021-11-02)
+
+
+### Bug Fixes
+
+* :bug: removed dist from repository ([359834d](https://github.com/lusend/website/commit/359834df019d7aa5b040ae455cbf126e884124d0))
+
 ## [1.4.0](https://github.com/lusend/website/compare/v1.3.1...v1.4.0) (2021-11-02)
 
 
