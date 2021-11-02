@@ -1,25 +1,24 @@
-name: Node.js CI
+name: Build Website Files
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: npm install and build
-      run: |
-        npm ci
-        npm run build --if-present
-    - name: Save files as artifacts
-      uses: actions/upload-artifact@v2
-      with:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: npm install and build
+        run: |
+          npm ci
+          npm run build --if-present
+      - name: Save files as artifacts
+        uses: actions/upload-artifact@v2
+        with:
           name: output-files
           path: dist
