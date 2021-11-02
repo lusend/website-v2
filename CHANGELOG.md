@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/lusend/website/compare/v1.2.1...v1.3.0) (2021-11-02)
+
+
+### Features
+
+* **release:** :construction_worker: added dist to release assets ([2994e1f](https://github.com/lusend/website/commit/2994e1fa8ddb43b99dc228000fedf38ec3098aa6))
+
 ### [1.2.1](https://github.com/lusend/website/compare/v1.2.0...v1.2.1) (2021-11-02)
 
 
