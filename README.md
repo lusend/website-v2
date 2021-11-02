@@ -40,7 +40,9 @@ To generate the production files, run the following:
 npm run build
 ```
 
-< NOTE: As changes are made, use these commands to help ensure the correctness of the data. To trigger a new release and output of files, make sure to include `feat:` or `fix:` at the beginning of your commit statement, or the automatic versioning will not work.
+> NOTE: As changes are made, use these commands to help ensure the correctness of the data. To trigger a new release and output of files, make sure to include `feat:` or `fix:` at the beginning of your commit statement, or the automatic versioning will not work.
+
+> NOTE: If you are unfamiliar with markdown, take a look at the [basic syntax](https://www.markdownguide.org/basic-syntax/) or try the [tutorial](https://www.markdowntutorial.com/)
 
 ## Front Matter
 
