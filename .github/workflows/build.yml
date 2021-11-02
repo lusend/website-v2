@@ -24,7 +24,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: npm run semantic-release
       - name: Build
         run: npm run build
       - name: Save files as artifacts
