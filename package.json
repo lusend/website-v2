@@ -77,7 +77,14 @@
           "message": "chore(release): :bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
-      "@semantic-release/github"
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            "dist/**"
+          ]
+        }
+      ]
     ],
     "repositoryUrl": "https://github.com/lusend/website"
   }
