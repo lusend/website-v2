@@ -1,4 +1,4 @@
-name: Build Website Files
+name: Build and Release Website Files
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # gives access to all previous commits
@@ -21,14 +21,9 @@ jobs:
           node-version: 'lts/*'
       - name: Install Dependencies
         run: npm ci
-      - name: Release
+      - name: Build Website
+        run: npm run build
+      - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
-      - name: Build
-        run: npm run build
-      - name: Save files as artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: output-files
-          path: dist
