@@ -1,0 +1,75 @@
+<style>
+  html {
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    color: #222;
+  }
+
+  .picture-button {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background: url('https://source.unsplash.com/random');
+    backdrop-filter: blur(10px);
+  }
+</style>
+
+<h1>Test Page</h1>
+
+<div class="test">
+  <nav class="table-of-contents">
+    <ol>
+      <li><a href="#sub-heading"> Sub heading</a></li>
+      <li>
+        <a href="#another-subheading"> Another subheading</a>
+        <ol>
+          <li>
+            <a href="#a-sub-heading-of-the-subheading">
+              A sub heading of the subheading</a
+            >
+          </li>
+          <li><a href="#another-one"> Another one</a></li>
+          <li>
+            <a href="#definitely-need-to-work-on-styling">
+              Definitely need to work on styling</a
+            >
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+</div>
+<h2 id="sub-heading" tabindex="-1">
+  <a class="header-anchor" href="#sub-heading">🔗</a> Sub heading
+</h2>
+<h2 id="another-subheading" tabindex="-1">
+  <a class="header-anchor" href="#another-subheading">🔗</a> Another subheading
+</h2>
+<h3 id="a-sub-heading-of-the-subheading" tabindex="-1">
+  <a class="header-anchor" href="#a-sub-heading-of-the-subheading">🔗</a> A sub
+  heading of the subheading
+</h3>
+<h3 id="another-one" tabindex="-1">
+  <a class="header-anchor" href="#another-one">🔗</a> Another one
+</h3>
+<h3 id="definitely-need-to-work-on-styling" tabindex="-1">
+  <a class="header-anchor" href="#definitely-need-to-work-on-styling">🔗</a>
+  Definitely need to work on styling
+</h3>
+
+<script></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-JM49TQ0ELT"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-JM49TQ0ELT');
+</script>
