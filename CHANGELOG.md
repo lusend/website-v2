@@ -1,3 +1,10 @@
+### [1.5.1](https://github.com/lusend/website/compare/v1.5.0...v1.5.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* :bug: changed test container to aside container ([66df3cd](https://github.com/lusend/website/commit/66df3cd4cd054c692f594a6e642689ba4a0143ac))
+
 ## [1.5.0](https://github.com/lusend/website/compare/v1.4.2...v1.5.0) (2021-11-03)
 
 
