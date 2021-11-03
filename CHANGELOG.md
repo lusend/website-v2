@@ -1,3 +1,10 @@
+### [1.6.1](https://github.com/lusend/website/compare/v1.6.0...v1.6.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* :lipstick: began the process of adding TD specific styles ([aaf5d7a](https://github.com/lusend/website/commit/aaf5d7ae00d93b6226a7a4087a0c7dea6e496fa2))
+
 ## [1.6.0](https://github.com/lusend/website/compare/v1.5.1...v1.6.0) (2021-11-03)
 
 
