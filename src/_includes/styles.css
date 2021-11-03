@@ -3,3 +3,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+#pagebodycontentheader {
+  display: none;
+}
