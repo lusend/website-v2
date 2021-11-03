@@ -1,3 +1,10 @@
+const path = require('path');
+const postcss = require('postcss');
+const postcssImport = require('postcss-import');
+const postcssNested = require('postcss-nested');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
+
 const { NODE_ENV } = process.env;
 let CAPTURES;
 
@@ -25,6 +32,21 @@ const display = function (name) {
   return '';
 };
 
+// process post css
+// paired shortcode
+const cssprocessor = async function (content, file) {
+  const rawFilepath = path.join(__dirname, `../src/_includes/${file}`);
+
+  return await postcss([
+    postcssNested,
+    postcssImport,
+    tailwindcss,
+    autoprefixer
+  ])
+    .process(content, { from: rawFilepath })
+    .then((res) => res.css);
+};
+
 // create a link to another page from a certain collection
 const pagelink = function (pageName, collections, collectionName = 'pages') {
   const currentCollection = collections[collectionName];
@@ -37,5 +59,6 @@ module.exports = {
   beforeCapture,
   capture,
   display,
-  pagelink
+  pagelink,
+  cssprocessor
 };

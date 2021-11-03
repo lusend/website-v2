@@ -552,18 +552,23 @@
               name="twitter:image"
               content="http://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=29644"
 />
-
               {% display "settings" %}
 
               <style>
-                {% for style in styles %}
-                  {% include style + ".css" ignore missing %}
-                {% endfor %}
+                {% asyncAll style in styles %}
+                {% cssprocessor style + ".css" %}
+                {% include style + ".css" ignore missing %}
+                {% endcssprocessor %}
+                {% endall %}
               </style>
 
-              <h1>{{ title }}</h1>
+              <div class="tailwind">
+                <div class="prose">
+                  <h1>{{ title }}</h1>
 
-              {{content | safe}}
+                  {{content | safe}}
+                </div>
+              </div>
 
               <script>
                 {% for script in scripts %}
@@ -590,14 +595,20 @@
   {% display "settings" %}
 
   <style>
-    {% for style in styles %}
-      {% include style + ".css" ignore missing %}
-    {% endfor %}
+    {% asyncAll style in styles %}
+    {% cssprocessor style + ".css" %}
+    {% include style + ".css" ignore missing %}
+    {% endcssprocessor %}
+    {% endall %}
   </style>
 
-  <h1>{{ title }}</h1>
+  <div class="tailwind">
+    <div class="prose">
+      <h1>{{ title }}</h1>
 
-  {{content | safe}}
+      {{content | safe}}
+    </div>
+  </div>
 
   <script>
     {% for script in scripts %}

@@ -1,13 +1,1 @@
-html {
-  font-family: sans-serif;
-  scroll-behavior: smooth;
-  color: #222;
-}
-
-.picture-button {
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 5px;
-  background: url('https://source.unsplash.com/random');
-  backdrop-filter: blur(10px);
-}
+@import './tailwind.css';

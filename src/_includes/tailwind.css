@@ -1,0 +1,19 @@
+.tailwind {
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    color: #222;
+  }
+
+  @layer components {
+    .prose {
+      @apply text-3xl;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

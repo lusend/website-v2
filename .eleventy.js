@@ -1,11 +1,12 @@
 const { markdown } = require('./config/libraries');
-const { formatter } = require('./config/transforms');
+const { formatter, minifier } = require('./config/transforms');
 const { env } = require('./config/filters');
 const {
   beforeCapture,
   capture,
   display,
-  pagelink
+  pagelink,
+  cssprocessor
 } = require('./config/shortcodes');
 
 module.exports = function (config) {
@@ -15,8 +16,11 @@ module.exports = function (config) {
 
   config.addShortcode('pagelink', pagelink);
 
+  config.addPairedNunjucksAsyncShortcode('cssprocessor', cssprocessor);
+
   config.addFilter('env', env);
 
+  config.addTransform('minifier', minifier({ css: true, js: false }));
   config.addTransform('formatter', formatter);
 
   config.setLibrary('md', markdown);
