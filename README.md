@@ -6,7 +6,32 @@
 
 > The LU Send Website uses [eleventy](https://github.com/11ty/eleventy) as a static site builder along with [prettier](https://github.com/prettier/prettier) for formatting and [markdown-it](https://github.com/markdown-it/markdown-it) for markdown parsing, [semantic-release](https://github.com/semantic-release/semantic-release) and [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to automate versioning, and [github actions](https://github.com/features/actions) to automate builds.
 
-## Development
+## :bookmark_tabs: Table of Contents
+
+- [:bookmark_tabs: Table of Contents](#bookmark_tabs-table-of-contents)
+- [:computer: Development](#computer-development)
+- [:pencil: Front Matter](#pencil-front-matter)
+  - [`layout`](#layout)
+  - [`title`](#title)
+  - [`styles`](#styles)
+  - [`scripts`](#scripts)
+  - [`slug`](#slug)
+  - [`tags`](#tags)
+- [Styles](#styles-1)
+- [Shortcodes](#shortcodes)
+  - [`pagelink`](#pagelink)
+  - [`capture`](#capture)
+- [:bookmark: Markdown Plugins](#bookmark-markdown-plugins)
+  - [`markdown-it-sub`](#markdown-it-sub)
+  - [`markdown-it-sup`](#markdown-it-sup)
+  - [`markdown-it-emoji`](#markdown-it-emoji)
+  - [`markdown-it-bracketed-spans`](#markdown-it-bracketed-spans)
+  - [`markdown-it-attrs`](#markdown-it-attrs)
+  - [`markdown-it-container`](#markdown-it-container)
+    - [`aside`](#aside)
+  - [`markdown-it-toc-done-right`](#markdown-it-toc-done-right)
+
+## :computer: Development
 
 To begin developing this website, follow these steps:
 
@@ -42,9 +67,7 @@ npm run build
 
 > NOTE: As changes are made, use these commands to help ensure the correctness of the data. To trigger a new release and output of files, make sure to include `feat:` or `fix:` at the beginning of your commit statement, or the automatic versioning will not work.
 
-> NOTE: If you are unfamiliar with markdown, take a look at the [basic syntax](https://www.markdownguide.org/basic-syntax/) or try the [tutorial](https://www.markdowntutorial.com/)
-
-## Front Matter
+## :pencil: Front Matter
 
 Every markdown file can include the following front matter elements. Front matter is defined at the top of a file using three `-` characters like so:
 
@@ -119,6 +142,16 @@ tags: [pages, faq]
 
 See [Eleventy documentation](https://www.11ty.dev/docs/data-eleventy-supplied/) for more details on tags. Note that a page should be given a tag if you ever want to link to it.
 
+## Styles
+
+Post CSS and tailwindcss have been included. In fact, tailwindcss's @tailwind/typography plugin is included and all pages/brochures are wrapped by default in the `<div class="prose">` to generate default styles. Any tailwind style can be used, and only the styles used will actually appear in the build thanks to the jit compiler. View [tailwind's documentation](https://tailwindcss.com/docs) and [JIT page](https://tailwindcss.com/docs/just-in-time-mode) for more information.
+
+Several Post CSS plugins have been included outside of tailwindcss as well. These plugins allow for the following:
+
+- Import from other css files using relative urls
+- Nesting in your css
+- Autoprefixing
+
 ## Shortcodes
 
 A few shortcodes have been made available to make certain functionality easier.
@@ -168,3 +201,119 @@ I appear first, even though I am not written first.
 ```
 
 The above inserts the paragraph, "Place me somewhere else!" at the end of the document. Theoretically, you could use the `display` multiple times to repeat different elements.
+
+## :bookmark: Markdown Plugins
+
+Several markdown plugins have been included to make life somewhat easier.
+
+> NOTE: If you are unfamiliar with markdown, take a look at the [basic syntax](https://www.markdownguide.org/basic-syntax/) or try the [tutorial](https://www.markdowntutorial.com/). These plugins are only a superset of regular markdown.
+
+### `markdown-it-sub`
+
+This plugin adds subscript to markdown.
+
+```md
+H~2~0
+```
+
+```html
+<p>H<sub>2</sub>O</p>
+```
+
+### `markdown-it-sup`
+
+This plugin adds superscript to markdown.
+
+```md
+29^th^
+```
+
+```html
+<p>29<sup>th</sup></p>
+```
+
+### `markdown-it-emoji`
+
+This plugin allows you to add github emojis using text surrounded by a colon. See [this page](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) for a full list of emojis.
+
+```md
+:muscle:
+```
+
+```html
+<p>💪</p>
+```
+
+### `markdown-it-bracketed-spans`
+
+This plugin allows you to create spans within paragraphs. This makes it easier to add attributes to specific text within a paragraph.
+
+```md
+This [is] a test.
+```
+
+```html
+<p>This <span>is</span> a test.</p>
+```
+
+### `markdown-it-attrs`
+
+This plugin allows you to add arbitrary attributes to content.
+
+```md
+_This_{.italic #myid data-test="test"} is a test
+```
+
+```html
+<p><em class="italic" id="myid" data-test="test">This</em> is a test</p>
+```
+
+### `markdown-it-container`
+
+This plugin allows you to create containers. As development continues, more containers will be implemented.
+
+#### `aside`
+
+This container places all content within an aside block.
+
+```md
+::: aside
+This is a test
+:::
+```
+
+```html
+<aside><p>This is a test</p></aside>
+```
+
+### `markdown-it-toc-done-right`
+
+This plugin generates a table of contents based on the headings in the file.
+
+```md
+${toc}
+```
+
+```html
+<nav class="table-of-contents">
+  <ol>
+    <li><a href="#sub-heading"> Sub heading</a></li>
+    <li>
+      <a href="#another-subheading"> Another subheading</a>
+      <ol>
+        <li>
+          <a href="#a-sub-heading-of-the-subheading">
+            A sub heading of the subheading</a
+          >
+        </li>
+        <li><a href="#another-one"> Another one</a></li>
+        <li>
+          <a href="#definitely-need-to-work-on-styling">
+            Definitely need to work on styling</a
+          >
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+```
