@@ -4,16 +4,32 @@
   @tailwind utilities;
 
   @layer base {
-    font-family: sans-serif;
-    scroll-behavior: smooth;
-    color: #222;
+    @apply text-[16px] max-w-[65ch] m-auto font-sans text-base-content;
   }
 
   @layer components {
+    h1 {
+      @apply text-4xl leading-3 font-bold mt-0 mb-4 hover:text-neutral-focus transition-colors;
+    }
+
     .prose {
-      @apply text-3xl;
-      margin-left: auto;
-      margin-right: auto;
+      @apply leading-5;
+
+      a {
+        @apply link link-primary;
+      }
+
+      :is(h1, h2, h3, h4, h5, h6) .header-anchor {
+        @apply no-underline opacity-0 float-left -ml-4 -mr-5 w-4 h-4 align-middle transition-opacity;
+      }
+
+      :is(h1, h2, h3, h4, h5, h6):hover .header-anchor {
+        @apply opacity-100;
+      }
+    }
+
+    .btn {
+      @apply mt-4;
     }
   }
 }

@@ -44,7 +44,7 @@ const cssprocessor = async function (content, file) {
     autoprefixer
   ])
     .process(content, { from: rawFilepath })
-    .then((res) => res.css);
+    .then((res) => res.css.replace(/\:root/g, '').replace(/rem/g, 'em'));
 };
 
 // create a link to another page from a certain collection

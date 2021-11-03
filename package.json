@@ -30,6 +30,7 @@
     "@types/jquery": "^3.5.8",
     "autoprefixer": "^10.4.0",
     "conventional-changelog-conventionalcommits": "^4.6.1",
+    "daisyui": "^1.16.1",
     "html-minifier": "^4.0.0",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-attrs": "^4.1.0",

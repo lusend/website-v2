@@ -4,7 +4,7 @@
 ![](https://img.shields.io/github/v/release/lusend/website)
 ![](https://img.shields.io/github/stars/lusend/website?style=social)
 
-> The LU Send Website uses [eleventy](https://github.com/11ty/eleventy) as a static site builder along with [prettier](https://github.com/prettier/prettier) for formatting and [markdown-it](https://github.com/markdown-it/markdown-it) for markdown parsing, [semantic-release](https://github.com/semantic-release/semantic-release) and [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to automate versioning, and [github actions](https://github.com/features/actions) to automate builds.
+> The LU Send Website uses [eleventy](https://github.com/11ty/eleventy) as a static site builder along with [prettier](https://github.com/prettier/prettier) for formatting [postcss](https://postcss.org/) for styles and [markdown-it](https://github.com/markdown-it/markdown-it) for markdown parsing, [semantic-release](https://github.com/semantic-release/semantic-release) and [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to automate versioning, and [github actions](https://github.com/features/actions) to automate builds.
 
 ## :wave: Table of Contents
 
@@ -29,6 +29,7 @@
   - [`markdown-it-attrs`](#markdown-it-attrs)
   - [`markdown-it-container`](#markdown-it-container)
     - [`aside`](#aside)
+  - [`div [class]`](#div-class)
   - [`markdown-it-toc-done-right`](#markdown-it-toc-done-right)
 
 ## :computer: Development
@@ -144,13 +145,15 @@ See [Eleventy documentation](https://www.11ty.dev/docs/data-eleventy-supplied/) 
 
 ## :lipstick: Styles
 
-Post CSS and tailwindcss have been included. In fact, tailwindcss's @tailwind/typography plugin is included and all pages/brochures are wrapped by default in the `<div class="prose">` to generate default styles. Any tailwind style can be used, and only the styles used will actually appear in the build thanks to the jit compiler. View [tailwind's documentation](https://tailwindcss.com/docs) and [JIT page](https://tailwindcss.com/docs/just-in-time-mode) for more information.
+Post CSS and tailwindcss have been included. In fact, tailwindcss's @tailwindcss/typography plugin is included and can be used by using the `div` container with the class `prose` to generate default styles. Any tailwind style can be used, and only the styles used will actually appear in the build thanks to the jit compiler. View [tailwindcss's documentation](https://tailwindcss.com/docs) and [JIT page](https://tailwindcss.com/docs/just-in-time-mode) for more information.
 
 Several Post CSS plugins have been included outside of tailwindcss as well. These plugins allow for the following:
 
 - Import from other css files using relative urls
 - Nesting in your css
 - Autoprefixing
+
+DaisyUI, a tailwindcss component library, has also been included. See the [daisyui documentation](https://daisyui.com/) for more information.
 
 ## :keyboard: Shortcodes
 
@@ -284,6 +287,20 @@ This is a test
 
 ```html
 <aside><p>This is a test</p></aside>
+```
+
+### `div [class]`
+
+This container wraps all content within a div with whatever follows afterwards.
+
+```md
+::: div prose
+This is a test
+:::
+```
+
+```html
+<div class="prose"><p>This is a test</p></div>
 ```
 
 ### `markdown-it-toc-done-right`
