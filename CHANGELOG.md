@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/lusend/website/compare/v1.4.2...v1.5.0) (2021-11-03)
+
+
+### Features
+
+* :lipstick: Added tailwindcss ([f9ddd78](https://github.com/lusend/website/commit/f9ddd78450939a9562e58680d6dd8f995a53fbc8))
+
 ### [1.4.2](https://github.com/lusend/website/compare/v1.4.1...v1.4.2) (2021-11-02)
 
 
