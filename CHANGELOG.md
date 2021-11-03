@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/lusend/website/compare/v1.5.1...v1.6.0) (2021-11-03)
+
+
+### Features
+
+* :lipstick: added daisyui component library ([6ddb8a6](https://github.com/lusend/website/commit/6ddb8a60af03a2fc598e2c08d7198bed39d8a3cb))
+
 ### [1.5.1](https://github.com/lusend/website/compare/v1.5.0...v1.5.1) (2021-11-03)
 
 
