@@ -6,9 +6,9 @@
 
 > The LU Send Website uses [eleventy](https://github.com/11ty/eleventy) as a static site builder along with [prettier](https://github.com/prettier/prettier) for formatting and [markdown-it](https://github.com/markdown-it/markdown-it) for markdown parsing, [semantic-release](https://github.com/semantic-release/semantic-release) and [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to automate versioning, and [github actions](https://github.com/features/actions) to automate builds.
 
-## :bookmark_tabs: Table of Contents
+## :wave: Table of Contents
 
-- [:bookmark_tabs: Table of Contents](#bookmark_tabs-table-of-contents)
+- [:wave: Table of Contents](#wave-table-of-contents)
 - [:computer: Development](#computer-development)
 - [:pencil: Front Matter](#pencil-front-matter)
   - [`layout`](#layout)
@@ -17,8 +17,8 @@
   - [`scripts`](#scripts)
   - [`slug`](#slug)
   - [`tags`](#tags)
-- [Styles](#styles-1)
-- [Shortcodes](#shortcodes)
+- [:lipstick: Styles](#lipstick-styles)
+- [:keyboard: Shortcodes](#keyboard-shortcodes)
   - [`pagelink`](#pagelink)
   - [`capture`](#capture)
 - [:bookmark: Markdown Plugins](#bookmark-markdown-plugins)
@@ -142,7 +142,7 @@ tags: [pages, faq]
 
 See [Eleventy documentation](https://www.11ty.dev/docs/data-eleventy-supplied/) for more details on tags. Note that a page should be given a tag if you ever want to link to it.
 
-## Styles
+## :lipstick: Styles
 
 Post CSS and tailwindcss have been included. In fact, tailwindcss's @tailwind/typography plugin is included and all pages/brochures are wrapped by default in the `<div class="prose">` to generate default styles. Any tailwind style can be used, and only the styles used will actually appear in the build thanks to the jit compiler. View [tailwind's documentation](https://tailwindcss.com/docs) and [JIT page](https://tailwindcss.com/docs/just-in-time-mode) for more information.
 
@@ -152,7 +152,7 @@ Several Post CSS plugins have been included outside of tailwindcss as well. Thes
 - Nesting in your css
 - Autoprefixing
 
-## Shortcodes
+## :keyboard: Shortcodes
 
 A few shortcodes have been made available to make certain functionality easier.
 
