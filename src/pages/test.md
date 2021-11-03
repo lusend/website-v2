@@ -6,7 +6,7 @@ tags: pages
 slug: bro
 ---
 
-::: test
+::: aside
 ${toc}
 :::
 
