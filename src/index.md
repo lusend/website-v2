@@ -1,7 +1,10 @@
 ---
 layout: page
 title: Page Selector
+styles: [styles]
 ---
+
+::: div prose
 
 <ul>
   {% for item in collections.pages %}
@@ -9,3 +12,5 @@ title: Page Selector
   {% endfor %}
   <li><a href="/brochure/">Brochure</a></li>
 </ul>
+
+:::

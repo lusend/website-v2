@@ -5,4 +5,4 @@ styles: [styles]
 tags: pages
 ---
 
-[**_Test Page Link_**]({% pagelink "test" collections %}){.btn .btn-primary}
+[**_Test Page Link_**]({{ link("test") }}){.btn .btn-primary}

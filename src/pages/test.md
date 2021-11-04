@@ -40,4 +40,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 :::
 
-[Test Link]({% pagelink "home" collections %}){.btn .btn-primary }
+[Test Link]({{ link("test") }}){.btn .btn-primary }

@@ -14,5 +14,12 @@ module.exports = {
     }
     if (!data.page.fileSlug) return false;
     return `${data.slug || data.page.fileSlug}.html`;
-  }
+  },
+  link:
+    (data) =>
+    (page, collectionName = 'pages') => {
+      const currentCollection = data.collections[collectionName];
+      const check = (item) => item.fileSlug === page || item.data.slug === page;
+      return currentCollection?.find(check)?.data?.path || '#';
+    }
 };

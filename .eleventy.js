@@ -5,7 +5,6 @@ const {
   beforeCapture,
   capture,
   display,
-  pagelink,
   cssprocessor
 } = require('./config/shortcodes');
 
@@ -13,8 +12,6 @@ module.exports = function (config) {
   config.on('beforeBuild', beforeCapture);
   config.addPairedShortcode('capture', capture);
   config.addShortcode('display', display);
-
-  config.addShortcode('pagelink', pagelink);
 
   config.addPairedNunjucksAsyncShortcode('cssprocessor', cssprocessor);
 
@@ -27,13 +24,13 @@ module.exports = function (config) {
 
   return {
     dir: {
-      markdownTemplateEngine: 'njk',
-      dataTemplateEngine: 'njk',
-      htmlTemplateEngine: 'njk',
       input: 'src',
       output: 'dist',
       includes: '_includes',
       layouts: '_layouts'
-    }
+    },
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk'
   };
 };
