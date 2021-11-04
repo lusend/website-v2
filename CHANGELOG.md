@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/lusend/website/compare/v1.6.1...v1.7.0) (2021-11-04)
+
+
+### Features
+
+* :recycle: pagelink conversion to front matter function ([b52410a](https://github.com/lusend/website/commit/b52410aac6dc8802e94824def08c5baccc13e511))
+
 ### [1.6.1](https://github.com/lusend/website/compare/v1.6.0...v1.6.1) (2021-11-03)
 
 
