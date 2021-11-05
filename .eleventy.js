@@ -1,4 +1,5 @@
 const { markdown } = require('./config/libraries');
+const { eleventyNavigation } = require('./config/plugins');
 const { formatter, minifier } = require('./config/transforms');
 const { env } = require('./config/filters');
 const {
@@ -22,12 +23,15 @@ module.exports = function (config) {
 
   config.setLibrary('md', markdown);
 
+  config.addPlugin(eleventyNavigation);
+
   return {
     dir: {
       input: 'src',
       output: 'dist',
-      includes: '_includes',
-      layouts: '_layouts'
+      includes: 'lib/includes',
+      layouts: 'lib/layouts',
+      data: 'lib/data'
     },
     markdownTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
