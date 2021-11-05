@@ -1,3 +1,11 @@
+## [1.8.0](https://github.com/lusend/website/compare/v1.7.0...v1.8.0) (2021-11-05)
+
+
+### Features
+
+* :construction: added eleventy navigation plugin ([43ae41c](https://github.com/lusend/website/commit/43ae41c8cbea72f33d62cfe3099f7efb26b71a9e))
+* :sparkles: miscellaneous updates ([a7ef8a3](https://github.com/lusend/website/commit/a7ef8a3b09615fdeafd6690b118fde7fe7723a53))
+
 ## [1.7.0](https://github.com/lusend/website/compare/v1.6.1...v1.7.0) (2021-11-04)
 
 
