@@ -21,5 +21,10 @@ module.exports = {
       const currentCollection = data.collections[collectionName];
       const check = (item) => item.fileSlug === page || item.data.slug === page;
       return currentCollection?.find(check)?.data?.path || '#';
-    }
+    },
+  eleventyNavigation: {
+    key: (data) => data.key || data.slug || data.page.fileSlug,
+    // title: (data) => data.title || data.key || data.slug || data.page.fileSlug,
+    parent: (data) => data.parent
+  }
 };

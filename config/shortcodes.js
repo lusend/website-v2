@@ -4,6 +4,7 @@ const postcssImport = require('postcss-import');
 const postcssNested = require('postcss-nested');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
+const { markdown } = require('./libraries');
 
 const { NODE_ENV } = process.env;
 let CAPTURES;
@@ -19,7 +20,7 @@ const capture = function (content, name) {
   if (!CAPTURES[this.page.inputPath]) CAPTURES[this.page.inputPath] = {};
   if (!CAPTURES[this.page.inputPath][name])
     CAPTURES[this.page.inputPath][name] = '';
-  CAPTURES[this.page.inputPath][name] += content;
+  CAPTURES[this.page.inputPath][name] += markdown.render(content);
   return '';
 };
 
@@ -35,7 +36,7 @@ const display = function (name) {
 // process post css
 // paired shortcode
 const cssprocessor = async function (content, file) {
-  const rawFilepath = path.join(__dirname, `../src/_includes/${file}`);
+  const rawFilepath = path.join(__dirname, `../src/lib/includes/${file}`);
 
   return await postcss([
     postcssNested,
@@ -44,7 +45,7 @@ const cssprocessor = async function (content, file) {
     autoprefixer
   ])
     .process(content, { from: rawFilepath })
-    .then((res) => res.css.replace(/\:root/g, '').replace(/rem/g, 'em'));
+    .then((res) => res.css.replace(/\:root/g, ''));
 };
 
 module.exports = {

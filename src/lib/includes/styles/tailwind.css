@@ -1,0 +1,79 @@
+#lusend {
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    .max-wrapper {
+      @apply max-w-6xl px-4 sm:px-24 mx-auto;
+    }
+  }
+
+  @layer components {
+    @apply w-full font-sans relative top-0 font-medium;
+
+    .prose {
+      @apply leading-6 max-w-none;
+
+      a:not(.header-anchor) {
+        @apply link link-primary;
+      }
+
+      .header-anchor {
+        @apply no-underline;
+        font-weight: inherit;
+      }
+    }
+
+    /* Layout Styles */
+    #lusend-title {
+      @apply text-primary-content pt-32 pb-2 bg-cover bg-no-repeat bg-top bg-primary;
+    }
+
+    #lusend-title > .max-wrapper > :is(.breadcrumbs, h1) {
+      @apply max-w-4xl mx-auto;
+    }
+
+    #lusend-title ~ svg {
+      @apply w-full mt-[-1px] drop-shadow-2xl;
+    }
+
+    #lusend-title ~ svg > path {
+      filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
+    }
+
+    #lusend-sidebar {
+      @apply hidden flex-initial max-w-md mx-8 pt-10 sticky h-screen top-0 lg:flex lg:flex-col lg:items-center;
+    }
+
+    #lusend-content {
+      @apply w-full flex justify-center gap-10;
+    }
+
+    #lusend-main {
+      @apply min-w-0 flex-1 pt-10 pb-24 lg:pb-16 max-w-xl;
+    }
+
+    /* Header Style outside of prose */
+    h1 {
+      @apply text-4xl font-extrabold my-4 transition-colors;
+    }
+
+    /* Anchor Styles for headers */
+    .header-anchor::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1' /%3E%3C/svg%3E");
+      @apply block w-4 h-4 float-left -ml-4 opacity-0 transition-opacity;
+    }
+
+    .header-anchor:hover::before {
+      @apply opacity-100;
+    }
+
+    /* Table of Contents */
+    .table-of-contents {
+      @apply pt-3 leading-7;
+    }
+  }
+
+  font-family: Montserrat, -apple-system, sans-serif;
+}

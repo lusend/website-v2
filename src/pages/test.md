@@ -1,20 +1,19 @@
 ---
 layout: page
 title: Test Page
-styles: [styles]
+styles: [defaults]
 tags: pages
+key: Test
+parent: Home
 slug: bro
+breadcrumbs: true
 ---
-
-::: aside
-${toc}
-:::
 
 ::: div prose
 
-# Heading
+## Heading
 
-See below.
+"See below"
 
 ## Sub heading
 
@@ -34,10 +33,16 @@ Viverra nibh cras pulvinar mattis. Amet mauris commodo quis imperdiet massa tinc
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing tristique risus nec feugiat in fermentum posuere. Mattis pellentesque id nibh tortor id aliquet lectus proin. Neque vitae tempus quam pellentesque nec. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Enim diam vulputate ut pharetra sit amet. Nullam vehicula ipsum a arcu cursus. Pulvinar proin gravida hendrerit lectus. Eros in cursus turpis massa tincidunt dui ut ornare lectus. Eget sit amet tellus cras adipiscing enim eu turpis egestas. Velit laoreet id donec ultrices tincidunt arcu non. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Vulputate sapien nec sagittis aliquam malesuada bibendum. Pellentesque elit ullamcorper dignissim cras. Cras sed felis eget velit aliquet sagittis id consectetur purus. Urna et pharetra pharetra massa massa. Ornare suspendisse sed nisi lacus sed viverra tellus. Mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Lorem sed risus ultricies tristique.
 
-### Definitely need to work on styling
+#### Definitely need to work on styling
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque nec nam aliquam sem et tortor consequat id porta. Pharetra convallis posuere morbi leo urna molestie at elementum. Viverra ipsum nunc aliquet bibendum enim facilisis. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Purus non enim praesent elementum facilisis leo vel fringilla est. In hac habitasse platea dictumst quisque sagittis. Ut diam quam nulla porttitor. Faucibus a pellentesque sit amet. Faucibus purus in massa tempor nec feugiat nisl pretium. Sed felis eget velit aliquet sagittis. Massa tempor nec feugiat nisl pretium fusce id velit. Ornare lectus sit amet est placerat in egestas erat imperdiet. Nam at lectus urna duis convallis convallis. Cursus turpis massa tincidunt dui. Pretium quam vulputate dignissim suspendisse in est ante in. Egestas egestas fringilla phasellus faucibus. Vitae nunc sed velit dignissim sodales ut. Hendrerit dolor magna eget est lorem ipsum dolor.
 
 :::
 
-[Test Link]({{ link("test") }}){.btn .btn-primary }
+:::: div card text-center bg-primary shadow-2xl text-primary-content mt-5
+::: div card-body
+[Home Link]({{ link("home") }}){.btn .btn-secondary }
+:::
+::::
+
+!!!include(toc.md)!!!

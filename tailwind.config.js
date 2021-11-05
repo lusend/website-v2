@@ -1,9 +1,10 @@
 module.exports = {
   mode: 'jit',
-  important: '.prose',
+  important: '#lusend-main',
   purge: [
     './src/**/*.html',
     './src/**/*.js',
+    './src/**/*.css',
     './src/**/*.md',
     './src/**/*.njk',
     './config/**/*.js'
@@ -15,7 +16,7 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: [require('daisyui'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
     styled: true,
     themes: [

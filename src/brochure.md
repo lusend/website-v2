@@ -1,10 +1,11 @@
 ---
 layout: brochure
 title: Study Abroad
-styles: [styles]
+key: Brochure
+styles: [defaults]
 ---
 
-{% capture "settings" %}
+{% block start %}
 
 <script>
   //Start Script
@@ -12,6 +13,6 @@ styles: [styles]
   //End Script
 </script>
 
-{% endcapture %}
+{% endblock %}
 
 # {{ title }}

@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Page Selector
-styles: [styles]
+key: Index
+styles: [defaults]
 ---
 
 ::: div prose
