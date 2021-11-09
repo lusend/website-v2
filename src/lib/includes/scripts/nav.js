@@ -22,13 +22,13 @@ function createMobileButton(title, link) {
 }
 
 // Logged In and Has Admin Console Button
-if ($('#pagenav a:contains(Admin Console)').length === 1) {
+if ($('#pagenav a:contains(Admin Console)').length >= 1) {
   createDesktopButton('Admin Console', '/index.cfm?FuseAction=Portal.Home');
   createMobileButton('Admin Console', '/index.cfm?FuseAction=Portal.Home');
 }
 
 // Logged In and Has Applicant Button
-if ($('#pagenav a:contains(Applicant)').length === 1) {
+if ($('#pagenav a:contains(Applicant)').length >= 1) {
   createDesktopButton(
     'My Applications',
     '/index.cfm?FuseAction=Students.AngularHome'
@@ -40,7 +40,7 @@ if ($('#pagenav a:contains(Applicant)').length === 1) {
 }
 
 // Logged In and Has Logout Button
-if ($('#pagenav a:contains(Logout)').length === 1) {
+if ($('#pagenav a:contains(Logout)').length >= 1) {
   $('[data-lusend-login]')
     .text('Logout')
     .attr('href', '/index.cfm?FuseAction=Security.Logout');
