@@ -1,7 +1,7 @@
 const { markdown } = require('./config/libraries');
 const { eleventyNavigation } = require('./config/plugins');
 const { formatter, minifier } = require('./config/transforms');
-const { env } = require('./config/filters');
+const { env, log, yesno } = require('./config/filters');
 const {
   beforeCapture,
   capture,
@@ -17,6 +17,8 @@ module.exports = function (config) {
   config.addPairedNunjucksAsyncShortcode('cssprocessor', cssprocessor);
 
   config.addFilter('env', env);
+  config.addFilter('log', log);
+  config.addFilter('yesno', yesno);
 
   config.addTransform('minifier', minifier({ css: true, js: false }));
   config.addTransform('formatter', formatter);
