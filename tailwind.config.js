@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  important: '#lusend-main',
+  important: '#lusend-important',
   purge: [
     './src/**/*.html',
     './src/**/*.js',

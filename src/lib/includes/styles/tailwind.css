@@ -5,7 +5,7 @@
 
   @layer base {
     .max-wrapper {
-      @apply max-w-6xl px-4 sm:px-24 mx-auto;
+      @apply max-w-[85rem] px-4 sm:px-24 mx-auto;
     }
   }
 
@@ -26,24 +26,44 @@
     }
 
     /* Layout Styles */
-    #lusend-title {
-      @apply text-primary-content pt-32 pb-2 bg-cover bg-no-repeat bg-top bg-primary;
+    .drawer-content {
+      @apply min-h-screen bg-cover bg-center bg-no-repeat bg-scroll bg-primary;
     }
 
-    #lusend-title > .max-wrapper > :is(.breadcrumbs, h1) {
-      @apply max-w-4xl mx-auto;
+    #lusend-nav-items {
+      @apply items-stretch hidden lg:flex gap-2;
     }
 
-    #lusend-title ~ svg {
-      @apply w-full mt-[-1px] drop-shadow-2xl;
+    #lusend-nav-items > div > ul > li > a:active {
+      @apply bg-base-300 text-base-content;
     }
 
-    #lusend-title ~ svg > path {
+    #lusend-header {
+      @apply text-primary-content;
+    }
+
+    #lusend-header > #lusend-title {
+      @apply bg-cover bg-no-repeat bg-top bg-primary mb-[-1px];
+    }
+
+    #lusend-header > #lusend-title > .max-wrapper > :is(.breadcrumbs, h1) {
+      @apply px-6 py-0 m-0;
+    }
+
+    #lusend-header .breadcrumbs {
+      @apply m-0 text-base-300;
+    }
+
+    #lusend-header ~ svg {
+      @apply w-screen drop-shadow-2xl;
+    }
+
+    #lusend-header svg > path {
       filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
     }
 
     #lusend-sidebar {
-      @apply hidden flex-initial max-w-md mx-8 pt-10 sticky h-screen top-0 lg:flex lg:flex-col lg:items-center;
+      @apply hidden flex-initial  max-w-xs 2xl:max-w-md pt-10 sticky h-screen top-0 lg:flex lg:flex-col lg:items-center;
     }
 
     #lusend-content {
@@ -51,7 +71,7 @@
     }
 
     #lusend-main {
-      @apply min-w-0 flex-1 pt-10 pb-24 lg:pb-16 max-w-xl;
+      @apply min-w-0 flex-1;
     }
 
     /* Header Style outside of prose */
@@ -70,8 +90,43 @@
     }
 
     /* Table of Contents */
+    #lusend-sidebar > aside {
+      @apply p-5 shadow-lg rounded-box overflow-y-auto bg-opacity-75 bg-base-100;
+    }
+
     .table-of-contents {
-      @apply pt-3 leading-7;
+      @apply pt-7;
+    }
+
+    .table-of-contents ol {
+      @apply prose list-none;
+    }
+
+    .table-of-contents ol ol {
+      @apply my-5;
+    }
+
+    .table-of-contents ol li,
+    .table-of-contents ol ol li {
+      @apply mt-5;
+    }
+
+    .table-of-contents ol ol > li::before {
+      content: none;
+    }
+
+    /* Override Classes */
+
+    .tw-hidden {
+      display: none;
+    }
+
+    .my-grid {
+      @apply p-2 grid grid-cols-1 xl:grid-cols-3 gap-6;
+    }
+
+    .card.image-full:before {
+      opacity: 0.6;
     }
   }
 
