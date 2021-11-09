@@ -1,3 +1,11 @@
+## [1.9.0](https://github.com/lusend/website/compare/v1.8.0...v1.9.0) (2021-11-09)
+
+
+### Features
+
+* :art: Cleaned up templates ([5142b63](https://github.com/lusend/website/commit/5142b635bb5b244d65a27dc0d585be97757088f3))
+* :sparkles: Added yesno and log filters ([43edfd8](https://github.com/lusend/website/commit/43edfd8d6eefc7b7215fb2ca2a97d705421f768c))
+
 ## [1.8.0](https://github.com/lusend/website/compare/v1.7.0...v1.8.0) (2021-11-05)
 
 
