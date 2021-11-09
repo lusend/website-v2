@@ -1,3 +1,10 @@
+### [1.9.1](https://github.com/lusend/website/compare/v1.9.0...v1.9.1) (2021-11-09)
+
+
+### Bug Fixes
+
+* :bug: fixed nav bug ([5bcecda](https://github.com/lusend/website/commit/5bcecdac280089ec57b22f6bc3a35524673ff445))
+
 ## [1.9.0](https://github.com/lusend/website/compare/v1.8.0...v1.9.0) (2021-11-09)
 
 
