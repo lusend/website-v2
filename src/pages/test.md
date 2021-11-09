@@ -1,12 +1,18 @@
 ---
-layout: page
-title: Test Page
-styles: [defaults]
-tags: pages
-key: Test
-parent: Home
+layout: base
+title: Test Page With a Long Title That Goes On and On
+shorttitle: Test
 slug: bro
-breadcrumbs: true
+parent: Home
+tags: pages
+options:
+  type: site
+  header: true
+  footer: true
+  nav: true
+  fullwidth: false
+  styles: [defaults]
+  scripts: []
 ---
 
 ::: div prose
@@ -15,9 +21,17 @@ breadcrumbs: true
 
 "See below"
 
+### Sub Heading of Heading
+
+#### And then another one
+
+##### And still another
+
 ## Sub heading
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Faucibus et molestie ac feugiat sed lectus vestibulum. Aliquam malesuada bibendum arcu vitae elementum. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Tristique senectus et netus et malesuada fames ac. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Blandit massa enim nec dui nunc mattis enim. Adipiscing vitae proin sagittis nisl. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Et sollicitudin ac orci phasellus egestas tellus. Turpis cursus in hac habitasse platea dictumst quisque. Id faucibus nisl tincidunt eget nullam non nisi est. Mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing. Nunc sed velit dignissim sodales ut. Maecenas pharetra convallis posuere morbi leo urna molestie at. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Velit egestas dui id ornare.
+
+![Image](https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21514){."mask mask-squircle"}
 
 ## Another subheading
 
@@ -38,11 +52,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque nec nam aliquam sem et tortor consequat id porta. Pharetra convallis posuere morbi leo urna molestie at elementum. Viverra ipsum nunc aliquet bibendum enim facilisis. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Purus non enim praesent elementum facilisis leo vel fringilla est. In hac habitasse platea dictumst quisque sagittis. Ut diam quam nulla porttitor. Faucibus a pellentesque sit amet. Faucibus purus in massa tempor nec feugiat nisl pretium. Sed felis eget velit aliquet sagittis. Massa tempor nec feugiat nisl pretium fusce id velit. Ornare lectus sit amet est placerat in egestas erat imperdiet. Nam at lectus urna duis convallis convallis. Cursus turpis massa tincidunt dui. Pretium quam vulputate dignissim suspendisse in est ante in. Egestas egestas fringilla phasellus faucibus. Vitae nunc sed velit dignissim sodales ut. Hendrerit dolor magna eget est lorem ipsum dolor.
 
 :::
-
-:::: div card text-center bg-primary shadow-2xl text-primary-content mt-5
-::: div card-body
-[Home Link]({{ link("home") }}){.btn .btn-secondary }
-:::
-::::
 
 !!!include(toc.md)!!!

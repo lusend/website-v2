@@ -1,5 +1,3 @@
-{% ifAsync "NODE_ENV" | env === "development" %}
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -1477,7 +1475,7 @@
         <div class="panel-heading">Program Description:</div>
 
         <div class="panel-body">
-          {% include "./base.njk" %}
+          {%block lusendcontent %}{% endblock %}
         </div>
       </div>
 
@@ -1877,19 +1875,3 @@
     </footer>
   </body>
 </html>
-
-{% else %}
-{% include "./base.njk" %}
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JM49TQ0ELT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-
-  gtag('config', 'G-JM49TQ0ELT');
-</script>
-{% endif %}

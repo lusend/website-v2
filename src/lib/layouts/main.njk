@@ -1,0 +1,77 @@
+{% import "./navbar.njk" as navbar %}
+
+{% set dev = "NODE_ENV" | env === "development" %}
+{% set layoutType = '' %}
+{% ifAsync dev and options.type === 'brochure' %}
+{% set layoutType = './brochure.njk' %}
+{% elif dev and options.type === 'site' %}
+{% set layoutType = './site.njk' %}
+{% else %}
+{% set layoutType = './production.njk' %}
+{% endif %}
+
+{% extends layoutType %}
+
+{% block lusendcontent %}
+{% set header %}
+{% block header %}{% endblock %}
+{% endset %}
+{% set mycontent %}
+{% block content %}{% endblock %}
+{% endset %}
+{% set footer %}
+{% block footer %}{% endblock %}
+{% endset %}
+
+{% display "start" %}
+
+<style>
+  {% asyncAll style in options.styles %}
+  {% cssprocessor "styles/" + style + ".css" %}
+  {% include "styles/" + style + ".css" ignore missing %}
+  {% endcssprocessor %}
+  {% endall %}
+
+  . {}
+</style>
+
+<div id="lusend">
+  <div id="lusend-important">
+    {% ifAsync options.nav %}
+    <div class="drawer drawer-end w-full">
+      <input id="lusend-nav-drawer" type="checkbox" class="drawer-toggle"/>
+      <div class="flex flex-col drawer-content w-full" style="{{"background-image: url('" + options.background + "');" if options.background else "background: #fff"}}">
+        <div class="min-h-full {{ "" if options.background else "bg-opacity-90 bg-base-100" }}">
+          <div id="lusend-header">
+            {{ navbar.create(collections, true, options.background) }}
+            {{ header | default('') | safe }}
+          </div>
+          {{ mycontent | default('') | safe }}
+
+        </div>
+      </div>
+      <div class="drawer-side h-full">
+        <label for="lusend-nav-drawer" class="drawer-overlay h-full"></label>
+        {{ navbar.create(collections, false) }}
+      </div>
+    </div>
+  {% else %}
+    {{ header | default('') | safe }}
+    {{ mycontent | default('') | safe }}
+    {{ footer | default('') | safe }}
+  {% endif %}
+</div>
+</div>
+
+<script>
+{% for script in options.scripts %}
+  {% include "scripts/" + script + ".js" ignore missing %}
+{% endfor %}
+{% if options.header %}
+  {% include "scripts/wave.js" ignore missing %}
+{% endif %}
+{% if options.nav %}
+  {% include "scripts/nav.js" ignore missing %}
+{% endif %}
+</script>
+{% endblock %}

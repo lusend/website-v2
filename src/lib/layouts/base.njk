@@ -1,41 +1,31 @@
-{% display "start" %}
+{% extends "./main.njk"%}
 
-<style>
-  {% asyncAll style in styles %}
-  {% cssprocessor "styles/" + style + ".css" %}
-  {% include "styles/" + style + ".css" ignore missing %}
-  {% endcssprocessor %}
-  {% endall %}
-</style>
-
-<div id="lusend">
-  <div id="lusend-title">
-    <div id="lusend-wrapper" class="max-wrapper">
-      {% if breadcrumbs %}
-        <div class="text-sm breadcrumbs">
-          {{ collections.pages | eleventyNavigationBreadcrumb(key, { includeSelf: true }) | eleventyNavigationToHtml | safe }}
-        </div>
-      {% endif %}
-      <h1>{{title}}</h1>
+{% block header %}
+  {% if options.header %}
+    <div id="lusend-title" class="pt-20">
+      <div class="max-wrapper pb-5">
+        {% if eleventyNavigation.parent %}
+          <div class="text-sm breadcrumbs">
+            {{ collections.pages | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) | eleventyNavigationToHtml | safe }}
+          </div>
+        {% endif %}
+        <h1>{{title}}</h1>
+      </div>
     </div>
-  </div>
+    <svg id="lusend-wave" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 1200,0 H 0 V 37 C 67,26 133,15 200,10 C 266,4 333,5 400,23 C 466,41 533,76 600,79 C 677,78 738,53 800,48 C 866,44 933,63 1000,62 C 1065,62 1131,41 1200,19 V 0 Z" fill="#0A254E"/>
+    </svg>
+  {% endif %}
+{% endblock %}
 
-  <svg id="lusend-wave" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M 1200,0 H 0 V 37 C 67,26 133,15 200,10 C 266,4 333,5 400,23 C 466,41 533,76 600,79 C 677,78 738,53 800,48 C 866,44 933,63 1000,62 C 1065,62 1131,41 1200,19 V 0 Z" fill="#0A254E"/>
-  </svg>
-
-  <div id="lusend-wrapper" class="{{ "" if fullwidth else "max-wrapper" }}">
-    <div id="lusend-content">
+{% block content %}
+  <div class="{{ "" if options.fullwidth else "max-wrapper" }}">
+    <div id="lusend-content" class="{{ "" if options.fullwidth else "px-6" }}">
       <div id="lusend-main">
         {{content | safe}}
       </div>
     </div>
   </div>
-</div>
+{% endblock %}
 
-<script>
-  {% for script in scripts %}
-    {% include "scripts/" + script + ".js" ignore missing %}
-  {% endfor %}
-  {% include "scripts/wave.js" ignore missing %}
-</script>
+{% block footer %}{% endblock %}

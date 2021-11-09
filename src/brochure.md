@@ -1,11 +1,21 @@
 ---
-layout: brochure
-title: Study Abroad
-key: Brochure
-styles: [defaults]
+layout: base
+title: Brochure
+shorttitle: Brochure
+slug: brochure.html
+# parent
+# tags: pages
+options:
+  type: brochure
+  header: true
+  footer: true
+  nav: true
+  fullwidth: true
+  styles: [defaults]
+  scripts: []
 ---
 
-{% block start %}
+{% capture "start" %}
 
 <script>
   //Start Script
@@ -13,6 +23,6 @@ styles: [defaults]
   //End Script
 </script>
 
-{% endblock %}
+{% endcapture %}
 
 # {{ title }}

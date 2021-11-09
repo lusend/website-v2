@@ -1,8 +1,18 @@
 ---
-layout: page
+layout: base
 title: Page Selector
-key: Index
-styles: [defaults]
+shorttitle: Index
+# parent
+# slug
+# tags
+options:
+  type: site
+  header: true
+  footer: true
+  nav: true
+  fullwidth: true
+  styles: [defaults]
+  scripts: []
 ---
 
 ::: div prose
