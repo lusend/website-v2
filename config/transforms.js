@@ -6,13 +6,18 @@ const jsParser = require('prettier/parser-babel');
 const cssParser = require('prettier/parser-postcss');
 
 // minify html, css, and js
-const minifier = ({ css = true, js = false }) =>
+const minifier = ({ css = true, js = true, html = true }) =>
   function (content, outputPath) {
     if (outputPath && outputPath.endsWith('.html')) {
       let formatted = htmlMinifier.minify(content, {
         removeComments: true,
         minifyCSS: css,
-        minifyJs: js
+        minifyJS: js,
+        collapseWhitespace: html,
+        collapseBooleanAttributes: html,
+        ignoreCustomFragments: [
+          /<!--ignoreminify-->[\s\S]*?<!--endignoreminify-->/
+        ]
       });
       return formatted;
     }

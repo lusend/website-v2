@@ -31,8 +31,6 @@
   {% include "styles/" + style + ".css" ignore missing %}
   {% endcssprocessor %}
   {% endall %}
-
-  . {}
 </style>
 
 <div id="lusend">
@@ -40,29 +38,36 @@
     {% ifAsync options.nav %}
     <div class="drawer drawer-end w-full">
       <input id="lusend-nav-drawer" type="checkbox" class="drawer-toggle"/>
-      <div class="flex flex-col drawer-content w-full" style="{{"background-image: url('" + options.background + "');" if options.background else "background: #fff"}}">
-        <div class="min-h-full {{ "" if options.background else "bg-opacity-90 bg-base-100" }}">
+      <div id="lusend-nav-scroll" class="flex flex-col drawer-content w-full">
+        <div id="lusend-background" class="w-full h-full fixed  z-[-1]" style="{{"background-image: url('" + options.background + "');" if options.background else "background: #fff"}}"></div>
+        <div class="min-h-full">
           <div id="lusend-header">
-            {{ navbar.create(collections, true, options.background) }}
+            {{ navbar.create(collections, true, options.background, options.planes) }}
             {{ header | default('') | safe }}
           </div>
           {{ mycontent | default('') | safe }}
-
+          {{ footer | default('') | safe }}
+          <div id="lusend-particles" class="fixed top-0 left-0 w-full h-full z-[-1]" {% if not options.planes %} style="opacity: 0;" {% endif %}></div>
         </div>
       </div>
-      <div class="drawer-side h-full">
-        <label for="lusend-nav-drawer" class="drawer-overlay h-full"></label>
-        {{ navbar.create(collections, false) }}
+      <div class="drawer-side h-[100vh]">
+        <label for="lusend-nav-drawer" class="drawer-overlay h-[100vh]"></label>
+        {{ navbar.create(collections, false, options.background, options.planes) }}
       </div>
     </div>
   {% else %}
-    {{ header | default('') | safe }}
+    <div id="lusend-background" class="w-full h-full fixed z-[-1]" style="{{"background-image: url('" + options.background + "');" if options.background else "background: #fff"}}"></div>
+    <div id="lusend-header">
+      {{ header | default('') | safe }}
+    </div>
     {{ mycontent | default('') | safe }}
     {{ footer | default('') | safe }}
+    <div id="lusend-particles" class="fixed top-0 left-0 w-full h-full z-0" {% if not options.planes %} style="opacity: 0;" {% endif %}></div>
   {% endif %}
 </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
 {% for script in options.scripts %}
   {% include "scripts/" + script + ".js" ignore missing %}
@@ -73,5 +78,6 @@
 {% if options.nav %}
   {% include "scripts/nav.js" ignore missing %}
 {% endif %}
+{% include "scripts/plane.js" ignore missing %}
 </script>
 {% endblock %}

@@ -23,7 +23,7 @@ module.exports = {
       return currentCollection?.find(check)?.data?.path || '#';
     },
   eleventyNavigation: {
-    key: (data) => data.shorttitle || data.slug || data.page?.fileSlug,
+    key: (data) => data.shortTitle || data.slug || data.page?.fileSlug,
     parent: (data) => data.parent,
     url: (data) => data.path
   }

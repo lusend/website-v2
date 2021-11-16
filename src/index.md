@@ -1,7 +1,9 @@
 ---
 layout: base
 title: Page Selector
-shorttitle: Index
+shortTitle: Index
+author: P Christopher Bowers
+date: false
 # parent
 # slug
 # tags
@@ -10,7 +12,7 @@ options:
   header: true
   footer: true
   nav: true
-  fullwidth: true
+  fullwidth: false
   styles: [defaults]
   scripts: []
 ---

@@ -1,10 +1,12 @@
 ---
 layout: base
 title: Test Page With a Long Title That Goes On and On
-shorttitle: Test
+shortTitle: Test
 slug: bro
 parent: Home
 tags: pages
+author: Chris
+date: 2021-11-11
 options:
   type: site
   header: true
@@ -52,5 +54,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque nec nam aliquam sem et tortor consequat id porta. Pharetra convallis posuere morbi leo urna molestie at elementum. Viverra ipsum nunc aliquet bibendum enim facilisis. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Purus non enim praesent elementum facilisis leo vel fringilla est. In hac habitasse platea dictumst quisque sagittis. Ut diam quam nulla porttitor. Faucibus a pellentesque sit amet. Faucibus purus in massa tempor nec feugiat nisl pretium. Sed felis eget velit aliquet sagittis. Massa tempor nec feugiat nisl pretium fusce id velit. Ornare lectus sit amet est placerat in egestas erat imperdiet. Nam at lectus urna duis convallis convallis. Cursus turpis massa tincidunt dui. Pretium quam vulputate dignissim suspendisse in est ante in. Egestas egestas fringilla phasellus faucibus. Vitae nunc sed velit dignissim sodales ut. Hendrerit dolor magna eget est lorem ipsum dolor.
 
 :::
+
+{% modal
+  name="my-modal",
+  center=false,
+  btnBlock=true,
+  btnText="Hello!"
+%}
+This is a **test**
+{% endmodal %}
 
 !!!include(toc.md)!!!

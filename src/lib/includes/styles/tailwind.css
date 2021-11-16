@@ -26,8 +26,15 @@
     }
 
     /* Layout Styles */
-    .drawer-content {
+    #lusend-background {
       @apply min-h-screen bg-cover bg-center bg-no-repeat bg-scroll bg-primary;
+    }
+    .drawer-toggle ~ .drawer-content {
+      @apply max-h-[unset];
+    }
+
+    .drawer-toggle:checked ~ .drawer-side {
+      overflow-y: unset;
     }
 
     #lusend-nav-items {
@@ -46,7 +53,7 @@
       @apply bg-cover bg-no-repeat bg-top bg-primary mb-[-1px];
     }
 
-    #lusend-header > #lusend-title > .max-wrapper > :is(.breadcrumbs, h1) {
+    #lusend-header > #lusend-title > .max-wrapper > * {
       @apply px-6 py-0 m-0;
     }
 
@@ -121,12 +128,20 @@
       display: none;
     }
 
-    .my-grid {
-      @apply p-2 grid grid-cols-1 xl:grid-cols-3 gap-6;
+    .section {
+      @apply min-h-screen w-full flex flex-col justify-center items-center py-5;
+    }
+
+    .section h1 {
+      @apply text-xl lg:text-5xl text-center my-5 mx-auto;
+    }
+
+    .section > :first-child {
+      margin-top: revert;
     }
 
     .card.image-full:before {
-      opacity: 0.6;
+      @apply bg-black opacity-50;
     }
   }
 

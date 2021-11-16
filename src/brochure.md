@@ -1,8 +1,8 @@
 ---
 layout: base
 title: Brochure
-shorttitle: Brochure
-slug: brochure.html
+shortTitle: Brochure
+slug: brochure
 # parent
 # tags: pages
 options:
@@ -17,11 +17,15 @@ options:
 
 {% capture "start" %}
 
+<!--ignoreminify-->
+
 <script>
   //Start Script
-  console.log('hello');
+  console.log('hi');
   //End Script
 </script>
+
+<!--endignoreminify-->
 
 {% endcapture %}
 

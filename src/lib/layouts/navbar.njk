@@ -12,7 +12,7 @@
   {% endif %}
 {% endmacro %}
 
-{% macro create(collections, desktop = true, transparentbg = false) %}
+{% macro create(collections, desktop = true, transparentbg = false, planes = true) %}
   {% set navPages = collections.pages | eleventyNavigation %}
 
   {%if desktop %}
@@ -49,6 +49,23 @@
               {% endfor %}
             </div>
           </div>
+          <div class="flex-none">
+            <div class="dropdown dropdown dropdown-end dropdown-hover">
+              <div {%if planes %} data-active {% endif %} id="lusend-toggle-plane" tabindex="0" class="btn btn-ghost rounded-btn">
+                <svg id="lusend-show-plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="inline-block w-6 h-6 stroke-current" {%if planes %} style="display: none;" {% endif %} preserveAspectRatio="xMidYMid meet" viewBox="0 0 408 432">
+                  <path d="M235 152l170 107v42l-67-21l-167-167V35q0-14 9-23t22.5-9t23 9t9.5 23v117zM21 72l27-27l336 336l-27 27l-122-122v79l42 32v32l-74-21l-75 21v-32l43-32V248L0 301v-42l128-80z" fill="currentColor"></path>
+                </svg>
+                <svg id="lusend-hide-plane" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="inline-block w-6 h-6 stroke-current" {%if not planes %} style="display: none;" {% endif %}  preserveAspectRatio="xMidYMid meet" viewBox="0 0 408 432">
+                  <path d="M175 152zm230 149l-170-53v117l42 32v32l-74-21l-75 21v-32l43-32V248L0 301v-42l171-107V35q0-14 9-23t22.5-9t23 9t9.5 23v117l170 107v42z" fill="currentColor"></path>
+                </svg>
+              </div>
+              <ul id="lusend-plane-density-menu" {%if not planes %} style="opacity: 0; pointer-events: none;" {% endif %} tabindex="0" class="p-3 shadow menu dropdown-content bg-base-100 text-base-content rounded-box w-auto">
+                <li>
+                  <input id="lusend-plane-density" type="range" min="50" max="5000" style="direction: rtl;" value="2000" class="range range-primary w-20">
+                </li>
+              </ul>
+            </div>
+          </div>
           {{ login(true) }}
           <div class="flex-none lg:hidden">
             <label for="lusend-nav-drawer" class="btn btn-square btn-ghost">
@@ -61,10 +78,10 @@
       </div>
     </div>
   {% else %}
-    <div class="w-[50vw] p-2 bg-neutral text-neutral-content">
+    <div class="w-[50vw] h-[100vh] overflow-y-auto p-2 bg-neutral text-neutral-content">
       {{ login(false) }}
       {{ navPages | eleventyNavigationToHtml({
-            listClass: "overflow-y-auto menu w-full"
+            listClass: "menu w-full"
           }) | safe }}
     </div>
     {% endif%}
