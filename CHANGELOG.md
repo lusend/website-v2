@@ -1,3 +1,10 @@
+## [1.10.0](https://github.com/lusend/website/compare/v1.9.1...v1.10.0) (2021-11-16)
+
+
+### Features
+
+* :sparkles: Several new features added including minification, modals, and planes ([bbed9b8](https://github.com/lusend/website/commit/bbed9b8cc65e0bf24da8a63fafab96e22c0a0f39))
+
 ### [1.9.1](https://github.com/lusend/website/compare/v1.9.0...v1.9.1) (2021-11-09)
 
 
