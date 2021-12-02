@@ -1,3 +1,10 @@
+## [1.11.0](https://github.com/lusend/website/compare/v1.10.0...v1.11.0) (2021-12-02)
+
+
+### Features
+
+* :sparkles: Massive update with style changes, map additions, and more ([00824df](https://github.com/lusend/website/commit/00824dff1a43640f9740a71a52f693d3bd0bb974))
+
 ## [1.10.0](https://github.com/lusend/website/compare/v1.9.1...v1.10.0) (2021-11-16)
 
 
