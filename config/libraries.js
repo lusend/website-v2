@@ -106,11 +106,11 @@ const markdown = markdownIt({
 
         return `<div class="${
           autoheight === 'autoheight' ? 'section min-h-0' : 'section'
-        } ${
+        } ${bgtype} ${classes}" ${id} ${opacity}>\n<div class="${
           fullwidth === 'fullwidth' ? '' : 'max-wrapper'
-        } ${bgtype} ${classes}" ${id} ${opacity}>\n`;
+        }">\n`;
       } else {
-        return '</div>\n';
+        return '</div>\n</div>\n';
       }
     }
   })
@@ -153,11 +153,11 @@ const markdown = markdownIt({
             : classes
           : '';
 
-        return `<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />\n<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>\n${swiperSettings(
+        return `<link rel="stylesheet" href="https://unpkg.com/swiper@7.2/swiper-bundle.min.css" />\n<script src="https://unpkg.com/swiper@7.2/swiper-bundle.min.js"></script>\n${swiperSettings(
           id
         )}\n<div ${
           id ? `id="${id}"` : ''
-        } class="swiper w-full h-full py-5 ${classes}">\n<div class="swiper-wrapper">\n`;
+        } class="swiper w-[100vw] h-full py-5 ${classes}">\n<div class="swiper-wrapper">\n`;
       } else {
         return `</div>\n</div>\n`;
       }

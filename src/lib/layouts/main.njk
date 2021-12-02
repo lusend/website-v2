@@ -36,7 +36,7 @@
 <div id="lusend">
   <div id="lusend-important">
     {% ifAsync options.nav %}
-    <div class="drawer drawer-end w-full">
+    <div class="drawer w-full">
       <input id="lusend-nav-drawer" type="checkbox" class="drawer-toggle"/>
       <div id="lusend-nav-scroll" class="flex flex-col drawer-content w-full">
         <div id="lusend-background" class="w-full h-full fixed  z-[-1]" style="{{"background-image: url('" + options.background + "');" if options.background else "background: #fff"}}"></div>
@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="drawer-side h-[100vh]">
-        <label for="lusend-nav-drawer" class="drawer-overlay h-[100vh]"></label>
+        <label for="lusend-nav-drawer" class="drawer-overlay h-[100vh] m-0">&nbsp;</label>
         {{ navbar.create(collections, false, options.background, options.planes) }}
       </div>
     </div>

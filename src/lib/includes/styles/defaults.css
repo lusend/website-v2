@@ -3,8 +3,9 @@
 
 #lusend .drawer-content,
 html {
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 #pagefooter,

@@ -35,7 +35,7 @@
                   <div class="dropdown dropdown-hover dropdown-end">
                     <div tabindex="0" class="btn btn-ghost rounded-btn">
                       <a href="{{ entry.url }}">{{ entry.key }}</a>&nbsp;
-                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  <i class="fa fa-chevron-down" aria-hidden="true">&nbsp;</i>
                     </div>
                     <ul tabindex="0" class="bg-base-100 text-base-content p-1 shadow menu dropdown-content rounded-box w-auto">
                       {% for child in entry.children %}
@@ -78,7 +78,7 @@
       </div>
     </div>
   {% else %}
-    <div class="w-[50vw] h-[100vh] overflow-y-auto p-2 bg-neutral text-neutral-content">
+    <div class="w-[75vw] h-[100vh] overflow-auto p-2 bg-neutral text-neutral-content">
       {{ login(false) }}
       {{ navPages | eleventyNavigationToHtml({
             listClass: "menu w-full"

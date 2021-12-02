@@ -10,8 +10,8 @@ options:
   header: true
   footer: true
   nav: true
-  fullwidth: true
-  styles: [defaults]
+  fullwidth: false
+  styles: [defaults, brochure]
   scripts: []
 ---
 
@@ -29,4 +29,4 @@ options:
 
 {% endcapture %}
 
-# {{ title }}
+Content Here.

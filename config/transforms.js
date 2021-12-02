@@ -9,16 +9,22 @@ const cssParser = require('prettier/parser-postcss');
 const minifier = ({ css = true, js = true, html = true }) =>
   function (content, outputPath) {
     if (outputPath && outputPath.endsWith('.html')) {
+      if (this?.frontMatter?.data?.options?.type === 'brochure')
+        content = formatter(content, outputPath);
+
       let formatted = htmlMinifier.minify(content, {
         removeComments: true,
         minifyCSS: css,
-        minifyJS: js,
+        minifyJS: !!js ? { quote_style: 1 } : false,
         collapseWhitespace: html,
         collapseBooleanAttributes: html,
+        quoteCharacter: "'",
         ignoreCustomFragments: [
-          /<!--ignoreminify-->[\s\S]*?<!--endignoreminify-->/
+          /<!--ignoreminify-->[\s\S]*?<!--endignoreminify-->/,
+          /&nbsp;/
         ]
       });
+
       return formatted;
     }
     return content;

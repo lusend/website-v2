@@ -1,0 +1,118 @@
+#lusend {
+  .gmnoprint[style*='1000000'] {
+    padding-bottom: 30px;
+  }
+
+  .selectizer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .selectizer .selectize-control {
+    width: 55%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  #map-markers-list {
+    max-width: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 50%;
+    height: 70%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 0.5s ease;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  #map-markers-list .list-content {
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  #map-markers-list .list-markers {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  #map-markers-list .list-toggle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    right: -40px;
+    top: 50%;
+    width: 40px;
+    height: auto;
+    background: red;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  #map-markers-list .list-toggle svg {
+    height: 70px;
+  }
+
+  .selectizer .selectize-control,
+  .selectizer .selectize-control ~ * {
+    margin: 10px 0px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .selectizer button.btn.btn-primary {
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0px;
+    width: 20%;
+    height: auto;
+    min-height: unset;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .selectizer .selectize-control > .selectize-input {
+    /* height: 100%; */
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .selectizer .selectize-control > .selectize-input,
+  .selectizer .selectize-control > .selectize-dropdown,
+  #map-markers-list {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 0.65rem;
+    text-decoration: none;
+  }
+
+  .selectizer .selectize-control > .selectize-dropdown {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+  }
+
+  .selectizer .selectize-control > .selectize-input * {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  #map {
+    width: 100%;
+    height: 100vh;
+  }
+}

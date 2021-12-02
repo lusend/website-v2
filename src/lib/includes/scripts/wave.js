@@ -48,7 +48,7 @@ const svgPathRender = (points) => {
     return `${acc} C ${cs[0]},${cs[1]} ${ce[0]},${ce[1]} ${e[0]},${e[1]}`;
   }, '');
 
-  return `<path d="M 1200,0 H 0 ${d} V 0 Z" fill="#0A254E" />`;
+  return `<path d='M 1200,0 H 0 ${d} V 0 Z' fill='#0A254E' />`;
 };
 
 const svg = document.querySelector('#lusend-wave');

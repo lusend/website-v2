@@ -1,0 +1,32 @@
+#pagebodycontentpageactions>div.hidden-sm.hidden-xs,
+  /* Search Stuff */
+  #pagebodycontentheader,
+  /* Brochure Heading + Tips */
+  #pagebodycontent>div.page-header>div>h3.col-sm-10>small,
+  /* Small Descriptor */
+  #pagebodycontent>div.page-header>div>h3.col-sm-2,
+  /* Program Buttons */
+  #pagebodycontent>div.row,
+  /* Location + Apply */
+  #pagebodycontent>div.panel.panel-primary,
+  /* Fact Sheet */
+  #pagebody>div:nth-child(2)>div.panel-heading,
+  /* Description Heading */
+  #pagebody>div:nth-child(4) {
+  /* Dates */
+  display: none;
+}
+
+#pagebodycontent > div.page-header > div > h3.col-sm-10 > #brochure-title {
+  position: absolute;
+  color: #ffffff;
+  left: 50%;
+  top: 50%;
+  min-width: 40%;
+  max-width: 80%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}

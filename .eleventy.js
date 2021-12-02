@@ -44,7 +44,10 @@ module.exports = function (config) {
   } else if (NODE_ENV === 'development') {
     config.addTransform('formatter', formatter);
   } else {
-    config.addTransform('minifier', minifier({ css: true, js: true }));
+    config.addTransform(
+      'minifier',
+      minifier({ css: true, js: true, html: true })
+    );
   }
 
   config.setLibrary('md', markdown);

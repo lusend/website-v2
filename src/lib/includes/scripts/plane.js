@@ -20,7 +20,7 @@ let config = {
         nb_sides: 5
       },
       image: {
-        src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' width='32' height='32' preserveAspectRatio='xMidYMid meet' viewBox='0 0 1200 1200'%3E%3Cpath d='M321 1164h120l269.28-480.06H1020s180 0 180-83.94c0-84-180-84-180-84H710.28L441 36H321l149.28 480H255.06L120 395.94H0l96.06 204L0 804h120l135.06-120.06h215.22L321 1164z' fill='currentColor' style='opacity: 0.5'%3E%3C/path%3E%3C/svg%3E",
+        src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS16b25kaWNvbnMiIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0IiB2aWV3Qm94PSIwIDAgMjAgMjAiPjxwYXRoIGQ9Ik04LjQgMTJIMi44TDEgMTVIMFY1aDFsMS44IDNoNS42TDYgMGgybDQuOCA4SDE4YTIgMiAwIDEgMSAwIDRoLTUuMkw4IDIwSDZsMi40LTh6IiBmaWxsPSJjdXJyZW50Q29sb3IiIHN0eWxlPSJvcGFjaXR5OiAwLjUiPjwvcGF0aD48L3N2Zz4=',
         width: 100,
         height: 100
       }
@@ -143,6 +143,6 @@ $(document).ready(function () {
 
   if ($('#lusend-toggle-plane').attr('data-active') === undefined) {
     pJSDom[0].pJS.particles.move.enable = false;
-    pJSDom[0].pJS.fn.particlesRefresh();
+    // pJSDom[0].pJS.fn.particlesRefresh();
   }
 });

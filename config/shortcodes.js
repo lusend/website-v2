@@ -51,18 +51,24 @@ const cssprocessor = async function (content, file) {
 
 const hero = function (
   content,
-  { image = 'logo', darkbg = true, opacity = 0.25, scrollid = '' }
+  {
+    image = 'logo',
+    darkbg = true,
+    opacity = 0.25,
+    scrollid = '',
+    txtlarge = false
+  }
 ) {
-  const renderedContent = markdown.renderInline(content);
+  const renderedContent = markdown.renderInline(content.trim());
   return `<div class="hero min-h-[90vh] ${
     darkbg ? 'bg-black text-primary-content' : 'bg-base-100 text-base-content'
   }" style="--tw-bg-opacity: ${opacity};">
   <div class="flex flex-col items-center text-center w-3/4 hero-content">
   ${image === 'logo' ? logo : `<img src="${image}" />`}
-  <p class="mb-5">
+  <p class="mb-5 ${txtlarge ? 'text-5xl' : ''}">
     ${renderedContent}
   </p>
-  <a href="#${scrollid}"><i class="fa fa-chevron-down animate-bounce text-5xl" aria-hidden="true"></i></a>
+  <a href="#${scrollid}"><i class="fa fa-chevron-down animate-bounce text-5xl" aria-hidden="true">&nbsp;</i></a>
   </div>
   </div>`;
 };
@@ -92,17 +98,15 @@ const button = function (
     btnText = 'Click Here'
   }
 ) {
-  const renderedContent = markdown.renderInline(content);
+  const renderedContent = markdown.renderInline(content.trim());
   btnColor =
     possibleButtons.find((btn) => btn.includes(btnColor)) || 'btn-primary';
   btnOutline = btnOutline ? 'btn-outline' : '';
   center = center ? 'text-center' : '';
 
   return `<div class="card min-h-[60vh] shadow-xl ${center} image-full">
-  <figure>
-  <img src="${image}" alt="Card Background" />
-  </figure> 
-  <div class="justify-start justify-items-center card-body" style="backdrop-filter: blur(4px);">
+  <figure class="bg-cover bg-center bg-no-repeat bg-primary" style="background-image: url('${image}');">&nbsp;</figure> 
+  <div class="justify-start justify-items-center card-body" style="backdrop-filter: blur(2px);">
   <h2 class="text-3xl card-title flex-none">${title}</h2> 
   <p class="flex-1">${renderedContent}</p> 
   <div class="card-actions flex-none">
@@ -116,15 +120,15 @@ const testimonial = function (
   content,
   { image = '', name = '', subtitle = '' }
 ) {
-  const renderedContent = markdown.renderInline(content);
+  const renderedContent = markdown.renderInline(content.trim());
 
-  return `<div class="swiper-slide max-w-md flex flex-col items-center py-2">
+  return `<div class="swiper-slide flex flex-col items-center py-2">
   <div class="w-20 h-20 shadow-2xl -mb-7 z-10 rounded-full m-0 p-0 overflow-hidden">
   <img class="mask mask-circle" src="${image}" alt="Testimonial Picture" />
   </div> 
   <div class="card bg-base-100 shadow-lg">
   <div class="card-body">
-  <div class="max-w-sm">
+  <div class="lusend-testimonial">
   <div class="text-3xl text-secondary text-left leading-tight h-3">“</div>
   <p class="text-sm text-base-content text-center px-5 -mt-1">${renderedContent}</p>
   <div class="text-3xl text-secondary text-right leading-tight h-3 -mt-3">”</div>
@@ -148,7 +152,7 @@ const modal = function (
     btnText = 'Click Here'
   }
 ) {
-  const renderedContent = markdown.render(content);
+  const renderedContent = markdown.render(content.trim());
   name = !name ? Date.now() : name;
   btnColor =
     possibleButtons.find((btn) => btn.includes(btnColor)) || 'btn-primary';
@@ -161,6 +165,7 @@ const modal = function (
   <label for="${name}" class="btn ${btnColor} ${btnBlock} ${btnOutline} modal-button">${btnText}</label>
   <input type="checkbox" id="${name}" class="modal-toggle">
   <div class="modal">
+  <label for="${name}" class="w-full h-full absolute m-0 p-0">&nbsp;</label>
   <div class="modal-box max-h-[70%] overflow-y-auto ${center}">
   ${renderedContent}
   <div class="modal-action">
