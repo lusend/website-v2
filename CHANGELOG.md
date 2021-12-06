@@ -1,3 +1,10 @@
+## [1.12.0](https://github.com/lusend/website/compare/v1.11.0...v1.12.0) (2021-12-06)
+
+
+### Features
+
+* :children_crossing: added several qol updates to the map ([6c6a765](https://github.com/lusend/website/commit/6c6a76599ec1b8a52ec0da961cf81e60453dd2f2))
+
 ## [1.11.0](https://github.com/lusend/website/compare/v1.10.0...v1.11.0) (2021-12-02)
 
 
