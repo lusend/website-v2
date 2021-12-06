@@ -229,7 +229,9 @@ class TDDriver {
                   ? void 0
                   : _a.type) || ''
               )
-            : this.createParam(param.id, param.value);
+            : this.createParam(param.id, param.value, {
+                terminator: !0
+              });
         })
         .join('|')
     );
@@ -262,7 +264,7 @@ class TDDriver {
       .join('&');
   }
   checkSearchElementValid(id) {
-    let flag = !0;
+    var flag = !0;
     return (
       isNaN(+id) &&
         !this.currentIDForm(id) &&
@@ -272,14 +274,15 @@ class TDDriver {
     );
   }
   checkSearchValueValid(id) {
-    let flag = !0;
+    var flag = !0;
     return (
       this.curSearchElementURL ||
         (console.warn(
           `Make sure to register search elements and pull them first (triggered by '${id}').`
         ),
         (flag = !1)),
-      isNaN(+id) &&
+      ((!id.startsWith('p_') && isNaN(+id)) ||
+        (id.startsWith('p_') && isNaN(+id.substr(2)))) &&
         !this.currentIDForm(id) &&
         id !== this.customID &&
         (console.warn(`This search element '${id}' does not exist.`),
@@ -293,7 +296,7 @@ class TDDriver {
     );
   }
   checkProgramValid(id) {
-    let flag = !0;
+    var flag = !0;
     return (
       this.searchResults.some((i) => i.id === id) ||
         (console.warn(
@@ -347,8 +350,11 @@ class TDDriver {
       );
   }
   saveSearchResults(data) {
-    this.curSearchResultsVerbiage = data.SEARCHVERBIAGE;
-    var programs = this.convertToArray(data.PROGRAM);
+    this.curSearchResultsVerbiage = data.SEARCHVERBIAGE.replace(
+      /^(.*), sorted by.*$/g,
+      '$1'
+    );
+    var programs = this.convertToArray(data.PROGRAM || []);
     this.searchResults = Object.entries(programs).reduce((res, [, curProg]) => {
       var _a;
       return (
@@ -597,34 +603,6 @@ class TDDriver {
         });
   }
 }
-
-// (function () {
-//   __async(this, null, function* () {
-//     var driver = new TDDriver();
-//     driver.registerSearchElement('11037').makePublic(),
-//       driver.registerSearchElement('11032').makePublic(),
-//       driver.registerSearchElement('11010').makePublic(),
-//       driver.registerSearchElement('11043').makePublic(),
-//       driver.registerSearchElement('11034').makePublic(),
-//       driver.registerSearchElement('11035').makePublic(),
-//       driver.registerSearchElement('11029').makePublic(),
-//       driver.registerSearchElement('City').makePublic(),
-//       driver.registerSearchElement('Country').makePublic(),
-//       driver.registerSearchElement('Region').makePublic(),
-//       driver.registerSearchElement('ProgramName').makePublic(),
-//       driver.registerSearchElement('11009').makePrivate(),
-//       driver.registerSearchElement('Term').makePrivate(),
-//       driver.registerSearchElement('ProgramType').makePrivate(),
-//       yield driver.confirmSearchElements(),
-//       yield driver.refineSearchElements(),
-//       driver.searchIn('11009').for('Faculty-Led Programs').makePermanent(),
-//       driver.searchIn('pc').for('Croatia').or('Israel').makeTemporary(),
-//       driver.searchIn('ProgramName').for('LU Send').makeTemporary(),
-//       driver.searchIn('Region').for('Middle East').or('Europe').makeTemporary(),
-//       yield driver.confirmSearchResults(),
-//       yield driver.refineProgram('12346');
-//   });
-// })();
 
 window.TDDriver = TDDriver;
 window.__async = __async;

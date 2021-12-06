@@ -412,7 +412,7 @@ class TDDriver {
               this.searchElements.find((el) => el.id === param.id)?.type || ''
             );
 
-          return this.createParam(param.id, param.value);
+          return this.createParam(param.id, param.value, { terminator: true });
         })
         .join('|')
     );
@@ -482,7 +482,12 @@ class TDDriver {
       );
       flag = false;
     }
-    if (isNaN(+id) && !this.currentIDForm(id) && id !== this.customID) {
+    if (
+      ((!id.startsWith('p_') && isNaN(+id)) ||
+        (id.startsWith('p_') && isNaN(+id.substr(2)))) &&
+      !this.currentIDForm(id) &&
+      id !== this.customID
+    ) {
       console.warn(`This search element '${id}' does not exist.`);
       flag = false;
     }
@@ -581,9 +586,12 @@ class TDDriver {
    * @param data An object returned from the API representing the search results data.
    */
   protected saveSearchResults(data: Record<string, any>) {
-    this.curSearchResultsVerbiage = data.SEARCHVERBIAGE;
+    this.curSearchResultsVerbiage = data.SEARCHVERBIAGE.replace(
+      /^(.*), sorted by.*$/g,
+      '$1'
+    );
 
-    const programs = this.convertToArray(data.PROGRAM);
+    const programs = this.convertToArray(data.PROGRAM || []);
 
     this.searchResults = (
       Object.entries(programs) as Record<string, any>
@@ -806,7 +814,7 @@ class TDDriver {
   }
 
   /** Resets Search Results Registration to begin registering new search results. */
-  protected resetRegisteredResults() {
+  public resetRegisteredResults() {
     this.curSearchResultsURL = '';
     this.curSearchResultsVerbiage = '';
     this.registeredResults = this.registeredResults.filter(

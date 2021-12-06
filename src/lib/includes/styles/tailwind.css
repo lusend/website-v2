@@ -7,6 +7,10 @@
     .max-wrapper {
       @apply max-w-[85rem] px-4 sm:px-24 mx-auto;
     }
+
+    #lusend img {
+      display: asdflskj;
+    }
   }
 
   @layer components {

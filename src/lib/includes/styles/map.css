@@ -33,10 +33,14 @@
   }
 
   #map-markers-list .list-markers {
+    @apply p-1;
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0;
+  }
+
+  #map-markers-list .list-markers a {
+    @apply link link-primary;
   }
 
   #map-markers-list .list-toggle {
@@ -74,6 +78,7 @@
     width: 20%;
     height: auto;
     min-height: unset;
+    padding: 0;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
@@ -113,6 +118,6 @@
 
   #map {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 72px);
   }
 }

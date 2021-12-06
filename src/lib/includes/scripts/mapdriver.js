@@ -24,6 +24,7 @@ class MapDriver {
       (this.maxZoom = 9),
       (this.minZoom = 1),
       (this.markers = {}),
+      (this.showID = !1),
       (this.visible =
         'M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z'),
       (this.invisible =
@@ -57,6 +58,9 @@ class MapDriver {
       (this.initZoom = initZoom),
       (this.possibleColors = possibleColors);
   }
+  getCount() {
+    return Object.keys(this.markers).length;
+  }
   getScripts() {
     return __async(this, null, function* () {
       yield this.getScript(
@@ -77,25 +81,39 @@ class MapDriver {
         yield this.getScript(
           'https://unpkg.com/@googlemaps/js-api-loader@1.0.0/dist/index.min.js'
         );
-      const loader = new google.maps.plugins.loader.Loader({
+      var loader = new google.maps.plugins.loader.Loader({
         apiKey: this.APIKey,
         version: 'weekly'
       });
       yield loader.load();
     });
   }
+  toggleShowID() {
+    this.showID = !this.showID;
+  }
+  closeInfoWindow() {
+    this.lastMarker &&
+      this.lastMarker.setIcon({
+        url: this.icons.single(this.lastMarker.get('color'))
+      }),
+      this.toggleMarkerList(!1),
+      (this.lastMarker = null),
+      this.info.close();
+  }
   addEventListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
       Object.getPrototypeOf(this.oms).formatMarkers.call(this.oms);
     }),
-      google.maps.event.addListener(this.map, 'click', () => {
-        this.lastMarker &&
-          this.lastMarker.setIcon({
-            url: this.icons.single(this.lastMarker.get('color'))
-          }),
-          (this.lastMarker = null),
-          this.info.close();
-      });
+      google.maps.event.addListener(
+        this.map,
+        'click',
+        this.closeInfoWindow.bind(this)
+      ),
+      google.maps.event.addListener(
+        this.cluster,
+        'click',
+        this.closeInfoWindow.bind(this)
+      );
   }
   init() {
     return __async(this, null, function* () {
@@ -152,31 +170,42 @@ class MapDriver {
   updateMarkerList(headerElement) {
     return __async(this, null, function* () {
       $('#map-markers-list').length || (yield this.addMarkerList()),
-        $('#map-markers-list .list-content').html(''),
-        $('#map-markers-list .list-content').append(headerElement),
-        $('#map-markers-list .list-content').append(
-          `<div style='text-align: center;'><strong>${
-            Object.keys(this.markers).length
-          }</strong> Found</div>`
-        ),
-        Object.keys(this.markers).forEach((id) => {
-          const marker = this.markers[id];
-          $('#map-markers-list .list-content').append(
-            '<hr>',
-            $("<div class='list-markers'>").append(
-              $('<a>')
-                .append(
-                  "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' width='24' height='24' preserveAspectRatio='xMidYMid meet' viewBox='2 2 20 20'><path d='M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 10.5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 9.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m0-5.3c-2.1 0-3.8 1.7-3.8 3.8c0 3 3.8 6.5 3.8 6.5s3.8-3.5 3.8-6.5c0-2.1-1.7-3.8-3.8-3.8z' fill='currentColor'></path></svg>"
-                )
-                .on('click', () => {
-                  this.showMarker(id), this.toggleMarkerList(!1);
-                }),
-              $(`<a href='${marker.get('link') || '#'}'>`).append(
-                `<strong>${marker.get('name')}</strong>`
+        headerElement
+          ? ($('#map-markers-list .list-content').html(''),
+            $('#map-markers-list .list-content').append(
+              $("<div class='list-header'></div>").append(
+                headerElement,
+                `<div style='text-align: center; margin-bottom: 0.5rem;'><strong>${
+                  Object.keys(this.markers).length
+                }</strong> Found</div>`
               )
-            )
-          );
-        });
+            ))
+          : $('#map-markers-list .list-content>*:not(.list-header)').remove(),
+        Object.keys(this.markers)
+          .sort((a, b) =>
+            this.markers[a]
+              .get('name')
+              .localeCompare(this.markers[b].get('name'))
+          )
+          .forEach((id) => {
+            var marker = this.markers[id];
+            $('#map-markers-list .list-content').append(
+              '<hr>',
+              $("<div class='list-markers'>").append(
+                $('<a>')
+                  .append(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' width='24' height='24' preserveAspectRatio='xMidYMid meet' viewBox='2 2 20 20'><path d='M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 10.5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 9.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m0-5.3c-2.1 0-3.8 1.7-3.8 3.8c0 3 3.8 6.5 3.8 6.5s3.8-3.5 3.8-6.5c0-2.1-1.7-3.8-3.8-3.8z' fill='currentColor'></path></svg>"
+                  )
+                  .on('click', () => {
+                    this.showMarker(id), this.toggleMarkerList(!1);
+                  }),
+                `<span>${this.showID ? `(${marker.get('id')})` : ''}</span>`,
+                $(`<a href='${marker.get('link') || '#'}'>`).append(
+                  `<strong>${marker.get('name')}</strong>`
+                )
+              )
+            );
+          });
     });
   }
   addLoadingControl(position, id) {
@@ -244,7 +273,7 @@ class MapDriver {
     });
   }
   addMarker(position, id, name, element, link = '') {
-    const color =
+    var color =
         this.possibleColors[
           Object.keys(this.markers).length % this.possibleColors.length
         ],
@@ -262,7 +291,19 @@ class MapDriver {
           ? (this.info.setContent(
               `<div id='info-${id}'>${$(element)[0].outerHTML}</div>`
             ),
-            this.info.open(this.map, marker),
+            this.info.setOptions({
+              disableAutoPan: !1
+            }),
+            this.info.open({
+              anchor: marker,
+              map: this.map,
+              shouldFocus: !1
+            }),
+            setTimeout(() => {
+              this.info.setOptions({
+                disableAutoPan: !0
+              });
+            }, 1),
             marker.setIcon({
               url: this.icons.open(marker.get('color'))
             }),
@@ -278,7 +319,7 @@ class MapDriver {
             (this.lastMarker = null));
       }),
       google.maps.event.addListener(marker, 'spider_format', (status) => {
-        const icon =
+        var icon =
           status === OverlappingMarkerSpiderfier.markerStatus.SPIDERFIED
             ? this.icons.single
             : status === OverlappingMarkerSpiderfier.markerStatus.SPIDERFIABLE
@@ -310,21 +351,23 @@ class MapDriver {
       (this.bounds = new google.maps.LatLngBounds()),
       (this.info = new google.maps.InfoWindow({
         content: '',
-        disableAutoPan: !0
+        disableAutoPan: !1
       }));
   }
   showMarker(id) {
-    const marker = this.markers[id];
+    this.toggleMarkerList(!1);
+    var marker = this.markers[id];
     this.map.setZoom(this.maxZoom),
-      this.map.panTo(marker.position),
+      this.map.panTo(marker.getPosition()),
       setTimeout(() => {
-        google.maps.event.trigger(marker, 'click'),
+        this.oms.markersNearMarker(marker, !0).length &&
+          google.maps.event.trigger(marker, 'click'),
           google.maps.event.trigger(marker, 'spider_click');
       }, 150);
   }
   addControl(position, element, id) {
     return new Promise((resolve) => {
-      const interval = setInterval(() => {
+      var interval = setInterval(() => {
         $(`#${id}`).length && (clearInterval(interval), resolve(element));
       }, 100);
       this.map.controls[google.maps.ControlPosition[position]].push(element);
@@ -373,7 +416,7 @@ class MapDriver {
           )[0],
           id
         );
-        const [options, optgroups] = this.cleanseOptions(opts);
+        var [options, optgroups] = this.cleanseOptions(opts);
         $(`#${id}`).selectize({
           valueField: 'value',
           labelField: 'name',
@@ -398,7 +441,7 @@ class MapDriver {
                   .val()
                   .split('%7F')
                   .map((v) => {
-                    const [id2, value] = v.split('%2C');
+                    var [id2, value] = v.split('%2C');
                     return {
                       id: id2,
                       value: value

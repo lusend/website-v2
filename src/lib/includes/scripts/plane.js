@@ -1,148 +1,142 @@
 let config = {
-  particles: {
-    number: {
-      value: 50,
-      density: {
-        enable: true,
-        value_area: 5000
-      }
-    },
-    color: {
-      value: '#ffffff'
-    },
-    shape: {
-      type: 'image',
-      stroke: {
-        width: 0,
-        color: '#000000'
-      },
-      polygon: {
-        nb_sides: 5
-      },
-      image: {
-        src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS16b25kaWNvbnMiIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0IiB2aWV3Qm94PSIwIDAgMjAgMjAiPjxwYXRoIGQ9Ik04LjQgMTJIMi44TDEgMTVIMFY1aDFsMS44IDNoNS42TDYgMGgybDQuOCA4SDE4YTIgMiAwIDEgMSAwIDRoLTUuMkw4IDIwSDZsMi40LTh6IiBmaWxsPSJjdXJyZW50Q29sb3IiIHN0eWxlPSJvcGFjaXR5OiAwLjUiPjwvcGF0aD48L3N2Zz4=',
-        width: 100,
-        height: 100
-      }
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false
-      }
-    },
-    size: {
-      value: 50,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 20,
-        sync: false
-      }
-    },
-    line_linked: {
-      enable: false,
-      distance: 150,
-      color: '#ffffff',
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 3,
-      direction: 'right',
-      random: true,
-      straight: false,
-      out_mode: 'out',
-      bounce: false,
-      attract: {
-        enable: true,
-        rotateX: 600,
-        rotateY: 1200
-      }
-    }
+  autoPlay: true,
+  fullScreen: {
+    enable: true
   },
+  detectRetina: true,
+  duration: 0,
+  fpsLimit: 60,
   interactivity: {
-    detect_on: 'window',
+    detectsOn: 'window',
     events: {
-      onhover: {
-        enable: true,
-        mode: 'repulse'
-      },
-      onclick: {
+      onClick: {
         enable: true,
         mode: 'push'
+      },
+      onHover: {
+        enable: true,
+        mode: 'repulse'
       },
       resize: true
     },
     modes: {
-      grab: {
-        distance: 400,
-        line_linked: {
-          opacity: 1
-        }
-      },
-      bubble: {
-        distance: 400,
-        size: 40,
-        duration: 2,
-        opacity: 8,
-        speed: 3
-      },
       repulse: {
-        distance: 121.81158184520177,
-        duration: 0.4
+        distance: 150
       },
       push: {
-        particles_nb: 4
+        quantity: 1
       },
-      remove: {
-        particles_nb: 2
+      trail: {
+        delay: 0.05,
+        quantity: 1,
+        pauseOnStop: true
       }
     }
   },
-  retina_detect: true
+
+  particles: {
+    color: {
+      value: '#fff',
+      animation: {
+        h: {
+          count: 0
+        }
+      }
+    },
+    move: {
+      enable: true,
+      direction: 'right',
+      straight: false
+    },
+    opacity: {
+      value: {
+        min: 0.1,
+        max: 0.5
+      },
+      animation: {
+        enable: true,
+        speed: 0.5,
+        startValue: 'random',
+        minimumValue: 0.2
+      }
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+        factor: 1000
+      },
+      limit: 0,
+      value: 10
+    },
+    rotate: {
+      path: true
+    },
+    shape: {
+      type: 'image',
+      image: {
+        width: 100,
+        height: 100,
+        src: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS1mYS1zb2xpZCIgd2lkdGg9IjEuMTNlbSIgaGVpZ2h0PSIxZW0iIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNNDgwIDE5MkgzNjUuNzFMMjYwLjYxIDguMDZBMTYuMDE0IDE2LjAxNCAwIDAgMCAyNDYuNzEgMGgtNjUuNWMtMTAuNjMgMC0xOC4zIDEwLjE3LTE1LjM4IDIwLjM5TDIxNC44NiAxOTJIMTEybC00My4yLTU3LjZjLTMuMDItNC4wMy03Ljc3LTYuNC0xMi44LTYuNEgxNi4wMUM1LjYgMTI4LTIuMDQgMTM3Ljc4LjQ5IDE0Ny44OEwzMiAyNTZMLjQ5IDM2NC4xMkMtMi4wNCAzNzQuMjIgNS42IDM4NCAxNi4wMSAzODRINTZjNS4wNCAwIDkuNzgtMi4zNyAxMi44LTYuNEwxMTIgMzIwaDEwMi44NmwtNDkuMDMgMTcxLjZjLTIuOTIgMTAuMjIgNC43NSAyMC40IDE1LjM4IDIwLjRoNjUuNWM1Ljc0IDAgMTEuMDQtMy4wOCAxMy44OS04LjA2TDM2NS43MSAzMjBINDgwYzM1LjM1IDAgOTYtMjguNjUgOTYtNjRzLTYwLjY1LTY0LTk2LTY0eiIgZmlsbD0iY3VycmVudENvbG9yIj48L3BhdGg+PC9zdmc+'
+      }
+    },
+    size: {
+      value: 64,
+      random: {
+        enable: true,
+        minimumValue: 8
+      }
+    }
+  }
 };
 
-const particles = particlesJS('lusend-particles', config);
+const particles = $('#lusend-particles')
+  .particles()
+  .init(config, (container) => {
+    $('#lusend-toggle-plane').on('click', function () {
+      if ($('#lusend-toggle-plane').attr('data-active') !== undefined) {
+        $('#lusend-hide-plane').hide();
+        $('#lusend-show-plane').show();
+        $('#lusend-toggle-plane').removeAttr('data-active');
+        $('#lusend-particles').css('opacity', 0);
+        $('#lusend-plane-density-menu').css('opacity', 0);
+        $('#lusend-plane-density-menu').css('pointer-events', 'none');
+        container.stop();
+      } else {
+        $('#lusend-hide-plane').show();
+        $('#lusend-show-plane').hide();
+        $('#lusend-toggle-plane').attr('data-active', '');
+        $('#lusend-particles').css('opacity', 1);
+        $('#lusend-plane-density-menu').css('opacity', 1);
+        $('#lusend-plane-density-menu').css('pointer-events', 'auto');
+        container.start();
+      }
+    });
 
-$(document).ready(function () {
-  $('#lusend-toggle-plane').on('click', function () {
-    if ($('#lusend-toggle-plane').attr('data-active') !== undefined) {
-      $('#lusend-hide-plane').hide();
-      $('#lusend-show-plane').show();
-      $('#lusend-toggle-plane').removeAttr('data-active');
-      $('#lusend-particles').css('opacity', 0);
-      $('#lusend-plane-density-menu').css('opacity', 0);
-      $('#lusend-plane-density-menu').css('pointer-events', 'none');
-      pJSDom[0].pJS.particles.move.enable = false;
-      pJSDom[0].pJS.fn.particlesRefresh();
-    } else {
-      $('#lusend-hide-plane').show();
-      $('#lusend-show-plane').hide();
-      $('#lusend-toggle-plane').attr('data-active', '');
-      $('#lusend-particles').css('opacity', 1);
-      $('#lusend-plane-density-menu').css('opacity', 1);
-      $('#lusend-plane-density-menu').css('pointer-events', 'auto');
-      pJSDom[0].pJS.particles.move.enable = true;
-      pJSDom[0].pJS.fn.particlesRefresh();
+    $('#lusend-plane-density').on('input', function () {
+      container.options.particles.number.density.area = $(
+        '#lusend-plane-density'
+      ).val();
+      container.refresh();
+    });
+
+    if ($('#lusend-toggle-plane').attr('data-active') === undefined) {
+      container.stop();
     }
-  });
 
-  $('#lusend-plane-density').on('input', function () {
-    window.pJSDom[0].pJS.particles.number.density.value_area = $(
-      '#lusend-plane-density'
-    ).val();
-    window.pJSDom[0].pJS.fn.particlesRefresh();
+    Mousetrap.bind(
+      'up up down down left right left right b a enter',
+      function () {
+        container.options.particles.size.value = 300;
+        container.options.particles.opacity.value.min = 0.8;
+        container.options.particles.opacity.value.max = 1;
+        container.options.particles.shape.image.width = 102;
+        container.options.particles.shape.image.height = 73;
+        container.options.interactivity.events.onHover.mode = 'trail';
+        container.options.particles.number.density.area = 50;
+        container.options.particles.shape.image.src =
+          'https://liberty-sa.terradotta.com/_customtags/ct_FileRetrieve.cfm?File_ID=34475';
+        container.refresh();
+      }
+    );
   });
-
-  if ($('#lusend-toggle-plane').attr('data-active') === undefined) {
-    pJSDom[0].pJS.particles.move.enable = false;
-    // pJSDom[0].pJS.fn.particlesRefresh();
-  }
-});

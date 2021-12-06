@@ -12,18 +12,23 @@ const minifier = ({ css = true, js = true, html = true }) =>
       if (this?.frontMatter?.data?.options?.type === 'brochure')
         content = formatter(content, outputPath);
 
-      let formatted = htmlMinifier.minify(content, {
-        removeComments: true,
-        minifyCSS: css,
-        minifyJS: !!js ? { quote_style: 1 } : false,
-        collapseWhitespace: html,
-        collapseBooleanAttributes: html,
-        quoteCharacter: "'",
-        ignoreCustomFragments: [
-          /<!--ignoreminify-->[\s\S]*?<!--endignoreminify-->/,
-          /&nbsp;/
-        ]
-      });
+      let formatted = htmlMinifier
+        .minify(content, {
+          removeComments: true,
+          minifyCSS: css,
+          minifyJS: !!js ? { quote_style: 1 } : false,
+          collapseWhitespace: html,
+          collapseBooleanAttributes: html,
+          quoteCharacter: "'",
+          ignoreCustomFragments: [
+            /<!--ignoreminify-->[\s\S]*?<!--endignoreminify-->/,
+            /&nbsp;/
+          ]
+        })
+        .replace(
+          /#lusend audio,#lusend canvas,#lusend embed,#lusend iframe,#lusend img,#lusend object,#lusend svg,#lusend video/g,
+          '#lusend audio,#lusend canvas,#lusend embed,#lusend iframe,#lusend object,#lusend svg,#lusend video'
+        );
 
       return formatted;
     }

@@ -4,6 +4,7 @@ declare global {
   var google: any;
   var OverlappingMarkerSpiderfier: any;
   var markerClusterer: any;
+  var Mousetrap: any;
 
   interface JQuery {
     selectize: any;
@@ -28,6 +29,8 @@ class MapDriver {
   protected info: any;
   protected lastMarker: any;
   protected bounds: any;
+
+  protected showID: boolean = false;
 
   protected visible =
     'M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z';
@@ -87,6 +90,10 @@ class MapDriver {
     this.possibleColors = possibleColors;
   }
 
+  public getCount() {
+    return Object.keys(this.markers).length;
+  }
+
   protected async getScripts() {
     await this.getScript(
       'https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js'
@@ -120,20 +127,36 @@ class MapDriver {
     await loader.load();
   }
 
+  public toggleShowID() {
+    this.showID = !this.showID;
+  }
+
+  protected closeInfoWindow() {
+    if (this.lastMarker)
+      this.lastMarker.setIcon({
+        url: this.icons.single(this.lastMarker.get('color'))
+      });
+    this.toggleMarkerList(false);
+    this.lastMarker = null;
+    this.info.close();
+  }
+
   protected addEventListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
       Object.getPrototypeOf(this.oms).formatMarkers.call(this.oms);
     });
 
-    google.maps.event.addListener(this.map, 'click', () => {
-      if (this.lastMarker)
-        this.lastMarker.setIcon({
-          url: this.icons.single(this.lastMarker.get('color'))
-        });
+    google.maps.event.addListener(
+      this.map,
+      'click',
+      this.closeInfoWindow.bind(this)
+    );
 
-      this.lastMarker = null;
-      this.info.close();
-    });
+    google.maps.event.addListener(
+      this.cluster,
+      'click',
+      this.closeInfoWindow.bind(this)
+    );
   }
 
   public async init() {
@@ -199,37 +222,50 @@ class MapDriver {
     }
   }
 
-  public async updateMarkerList(headerElement: JQuery<HTMLElement> | string) {
+  public async updateMarkerList(
+    headerElement: JQuery<HTMLElement> | string | undefined = undefined
+  ) {
     if (!$('#map-markers-list').length) await this.addMarkerList();
 
-    $('#map-markers-list .list-content').html('');
-    $('#map-markers-list .list-content').append(headerElement);
-    $('#map-markers-list .list-content').append(
-      `<div style='text-align: center;'><strong>${
-        Object.keys(this.markers).length
-      }</strong> Found</div>`
-    );
-
-    Object.keys(this.markers).forEach((id) => {
-      const marker = this.markers[id];
-
+    if (!headerElement) {
+      $('#map-markers-list .list-content>*:not(.list-header)').remove();
+    } else {
+      $('#map-markers-list .list-content').html('');
       $('#map-markers-list .list-content').append(
-        '<hr>',
-        $(`<div class='list-markers'>`).append(
-          $('<a>')
-            .append(
-              `<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' width='24' height='24' preserveAspectRatio='xMidYMid meet' viewBox='2 2 20 20'><path d='M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 10.5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 9.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m0-5.3c-2.1 0-3.8 1.7-3.8 3.8c0 3 3.8 6.5 3.8 6.5s3.8-3.5 3.8-6.5c0-2.1-1.7-3.8-3.8-3.8z' fill='currentColor'></path></svg>`
-            )
-            .on('click', () => {
-              this.showMarker(id);
-              this.toggleMarkerList(false);
-            }),
-          $(`<a href='${marker.get('link') || '#'}'>`).append(
-            `<strong>${marker.get('name')}</strong>`
-          )
+        $(`<div class='list-header'></div>`).append(
+          headerElement,
+          `<div style='text-align: center; margin-bottom: 0.5rem;'><strong>${
+            Object.keys(this.markers).length
+          }</strong> Found</div>`
         )
       );
-    });
+    }
+
+    Object.keys(this.markers)
+      .sort((a, b) =>
+        this.markers[a].get('name').localeCompare(this.markers[b].get('name'))
+      )
+      .forEach((id) => {
+        const marker = this.markers[id];
+
+        $('#map-markers-list .list-content').append(
+          '<hr>',
+          $(`<div class='list-markers'>`).append(
+            $('<a>')
+              .append(
+                `<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' width='24' height='24' preserveAspectRatio='xMidYMid meet' viewBox='2 2 20 20'><path d='M12 20a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 10.5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 9.5a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m0-5.3c-2.1 0-3.8 1.7-3.8 3.8c0 3 3.8 6.5 3.8 6.5s3.8-3.5 3.8-6.5c0-2.1-1.7-3.8-3.8-3.8z' fill='currentColor'></path></svg>`
+              )
+              .on('click', () => {
+                this.showMarker(id);
+                this.toggleMarkerList(false);
+              }),
+            `<span>${this.showID ? `(${marker.get('id')})` : ''}</span>`,
+            $(`<a href='${marker.get('link') || '#'}'>`).append(
+              `<strong>${marker.get('name')}</strong>`
+            )
+          )
+        );
+      });
   }
 
   public async addLoadingControl(position: string, id: string) {
@@ -331,7 +367,20 @@ class MapDriver {
         this.info.setContent(
           `<div id='info-${id}'>${$(element)[0].outerHTML}</div>`
         );
-        this.info.open(this.map, marker);
+        this.info.setOptions({
+          disableAutoPan: false
+        });
+        this.info.open({
+          anchor: marker,
+          map: this.map,
+          shouldFocus: false
+        });
+
+        setTimeout(() => {
+          this.info.setOptions({
+            disableAutoPan: true
+          });
+        }, 1);
 
         marker.setIcon({ url: this.icons.open(marker.get('color')) });
 
@@ -384,17 +433,19 @@ class MapDriver {
     this.bounds = new google.maps.LatLngBounds();
     this.info = new google.maps.InfoWindow({
       content: '',
-      disableAutoPan: true
+      disableAutoPan: false
     });
   }
 
   public showMarker(id: string) {
+    this.toggleMarkerList(false);
     const marker = this.markers[id];
     this.map.setZoom(this.maxZoom);
-    this.map.panTo(marker.position);
+    this.map.panTo(marker.getPosition());
 
     setTimeout(() => {
-      google.maps.event.trigger(marker, 'click');
+      if (this.oms.markersNearMarker(marker, true).length)
+        google.maps.event.trigger(marker, 'click');
       google.maps.event.trigger(marker, 'spider_click');
     }, 150);
   }
@@ -505,7 +556,7 @@ class MapDriver {
     { lat: 31.56391, lng: 147.154312 },
     '0',
     'My Name 0',
-    '<h1>This is element 3</h1>',
+    '<h1>This is element 3his is element 3his is element 3his is element 3his is element 3his is element 3his is element 3his is element 3his is element 3his is element 3</h1>',
     'https://pcbowers.com'
   );
   mapDriver.addMarker(
@@ -587,10 +638,16 @@ class MapDriver {
     '<h1>This is element 3</h1>'
   );
   mapDriver.addMarker(
-    { lat: -31.56391, lng: 147.154312 },
-    '992',
-    'My Name 2',
-    '<h1>This is element 3</h1>'
+    { lat: -31.56391, lng: -147.154312 },
+    '1992',
+    'My Name 23',
+    '<div><h1>This is element 4</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1></div>'
+  );
+  mapDriver.addMarker(
+    { lat: -31.56391, lng: -147.154312 },
+    '1992',
+    'My Name 23',
+    '<div><h1>This is element 4</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1><h1>This is element 3</h1></div>'
   );
 
   await mapDriver.addSelectize(
@@ -602,9 +659,10 @@ class MapDriver {
   );
 
   mapDriver.centerMap();
-  mapDriver.showMarker('2');
 
-  mapDriver.updateMarkerList($('<h6>Hello</h6>'));
+  await mapDriver.updateMarkerList($('<h6>Hello</h6>'));
 
-  mapDriver.toggleControls(false), mapDriver.toggleControls(false);
+  mapDriver.toggleMarkerList(false);
+
+  mapDriver.showMarker('1992');
 })();
