@@ -126,6 +126,7 @@ class MapDriver {
           zoom: this.initZoom,
           maxZoom: this.maxZoom,
           minZoom: this.minZoom,
+          gestureHandling: 'greedy',
           mapTypeID: google.maps.MapTypeId.HYBRID,
           streetViewControl: !1,
           mapTypeControlOptions: {
