@@ -1,3 +1,10 @@
+### [1.12.1](https://github.com/lusend/website/compare/v1.12.0...v1.12.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* :sparkles: made scroll greedy to allow map scroll zoom ([742a5dc](https://github.com/lusend/website/commit/742a5dc2f3396931b0b41e4673f279fe4ad5f794))
+
 ## [1.12.0](https://github.com/lusend/website/compare/v1.11.0...v1.12.0) (2021-12-06)
 
 
