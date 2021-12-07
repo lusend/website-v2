@@ -2,7 +2,7 @@
 </div>
 <div id="lusend-sidebar">
 <aside>
-<div class="prose"><h4>TABLE OF CONTENTS</h4></div>
+<div class="prose"><h2>TABLE OF CONTENTS</h2></div>
 
 ${toc}
 
