@@ -61,16 +61,78 @@
         }
       ],
       [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
         "@semantic-release/release-notes-generator",
         {
-          "preset": "conventionalcommits"
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "perf",
+                "section": "Performance Improvements"
+              },
+              {
+                "type": "revert",
+                "section": "Reverts"
+              },
+              {
+                "type": "docs",
+                "section": "Documentation"
+              },
+              {
+                "type": "style",
+                "section": "Styles"
+              },
+              {
+                "type": "chore",
+                "section": "Miscellaneous Chores"
+              },
+              {
+                "type": "refactor",
+                "section": "Code Refactoring"
+              },
+              {
+                "type": "test",
+                "section": "Tests"
+              },
+              {
+                "type": "build",
+                "section": "Build System"
+              },
+              {
+                "type": "ci",
+                "section": "Continuous Integration"
+              },
+              {
+                "type": "improvement",
+                "section": "Improvement"
+              }
+            ]
+          }
         }
       ],
       "@semantic-release/changelog",
       [
-        "@semantic-release/npm",
+        "@semantic-release/github",
         {
-          "npmPublish": false
+          "assets": [
+            {
+              "path": "dist/**/*"
+            }
+          ]
         }
       ],
       [
@@ -82,16 +144,6 @@
             "CHANGELOG.md"
           ],
           "message": "chore(release): :bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            {
-              "path": "dist/**"
-            }
-          ]
         }
       ]
     ],
