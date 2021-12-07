@@ -4,14 +4,15 @@ title: Faculty Gateway
 shortTitle: Faculty Gateway
 slug: gateway
 parent: Home
+order: 1
 tags: pages
 options:
   type: site
+  planes: false
   header: false
   footer: true
   nav: true
   fullwidth: true
-  planes: false
   background: https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21517
   styles: [defaults]
   scripts: []

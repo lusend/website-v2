@@ -2,16 +2,17 @@
 layout: base
 title: Home Page
 shortTitle: Home
-# slug
-# parent
+slug: home
+parent: false
+order: 0
 tags: pages
 options:
   type: site
+  planes: true
   header: false
   footer: true
   nav: true
   fullwidth: true
-  planes: true
   background: https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21409
   styles: [defaults]
   scripts: []

@@ -2,8 +2,9 @@
 layout: base
 title: International Proposal Process
 shortTitle: International Proposal Process
-parent: Faculty Gateway
 slug: intproposal
+parent: Faculty Gateway
+order: 1
 tags: pages
 options:
   type: site

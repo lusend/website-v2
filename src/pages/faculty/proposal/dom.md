@@ -2,8 +2,9 @@
 layout: base
 title: Domestic Proposal Process
 shortTitle: Domestic Proposal Process
-parent: Faculty Gateway
 slug: domproposal
+parent: Faculty Gateway
+order: 0
 tags: pages
 options:
   type: site

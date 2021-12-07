@@ -4,14 +4,16 @@ title: Group Travel
 shortTitle: Group Travel
 slug: map
 parent: Home
+order: 0
 tags: pages
 options:
   type: site
+  planes: false
   header: false
   footer: true
   nav: true
   fullwidth: true
-  # background: https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21409
+  background: false
   styles: [defaults, map]
   scripts: [tddriver, mapdriver, map]
 ---

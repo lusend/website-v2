@@ -25,6 +25,7 @@ module.exports = {
   eleventyNavigation: {
     key: (data) => data.shortTitle || data.slug || data.page?.fileSlug,
     parent: (data) => data.parent,
-    url: (data) => data.path
+    url: (data) => data.path,
+    order: (data) => data.order
   }
 };
