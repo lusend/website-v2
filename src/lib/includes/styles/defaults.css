@@ -35,3 +35,8 @@ main {
 #lusend-main {
   z-index: 2;
 }
+
+#lusend .mask-cover {
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}

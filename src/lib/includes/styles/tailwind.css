@@ -8,6 +8,18 @@
       @apply max-w-[85rem] px-4 sm:px-24 mx-auto;
     }
 
+    .header {
+      @apply object-cover object-center h-44 w-full rounded border border-gray-200;
+    }
+
+    .image {
+      @apply rounded;
+    }
+
+    .simple-btn {
+      @apply btn btn-primary m-2;
+    }
+
     #lusend img {
       display: asdflskj;
     }
@@ -15,6 +27,10 @@
 
   @layer components {
     @apply w-full font-sans relative top-0 font-medium;
+
+    .simple-btn {
+      @apply h-auto;
+    }
 
     .prose {
       @apply leading-6 max-w-none;
@@ -109,7 +125,7 @@
 
     /* Table of Contents */
     #lusend-sidebar > aside {
-      @apply p-5 shadow-lg rounded-box overflow-y-auto bg-opacity-75 bg-base-100;
+      @apply p-5 shadow-lg rounded-box overflow-y-auto bg-opacity-75 bg-base-100 border border-gray-200;
     }
 
     .table-of-contents {
@@ -163,6 +179,12 @@
 
     .swiper-slide {
       @apply max-w-sm lg:max-w-md;
+    }
+
+    #lusend-nav-scroll.drawer-content {
+      @media (min-width: 1024px) {
+        overflow-x: unset;
+      }
     }
   }
 
