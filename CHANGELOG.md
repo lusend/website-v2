@@ -1,3 +1,18 @@
+## [1.13.0](https://github.com/lusend/website/compare/v1.12.1...v1.13.0) (2021-12-07)
+
+
+### Features
+
+* :children_crossing: Added third level pages to nav bar for better navigation ([c0ffc40](https://github.com/lusend/website/commit/c0ffc404902675cd1e1f246503a2aada32e074f4))
+* :sparkles: Added a new driver to generate deadline date tables ([1894586](https://github.com/lusend/website/commit/18945865a73693f24bdf8c3f03402efde1c83ac5))
+* :sparkles: Updated Dom and Int Proposal Process Pages, finishing out the Faculty Gateway ([51a79bc](https://github.com/lusend/website/commit/51a79bcbf4342233529eebecb57527b2188fd4c6))
+
+
+### Bug Fixes
+
+* :children_crossing: Increased size of ToC header ([dd4ec4a](https://github.com/lusend/website/commit/dd4ec4a0d9edc7b65c1317ae11cacafa2a34230b))
+* :lipstick: Provided fix for large nav and/or large breadcrumb ([3e663e4](https://github.com/lusend/website/commit/3e663e4e20497df44c8378d8f37ca5034733930e))
+
 ### [1.12.1](https://github.com/lusend/website/compare/v1.12.0...v1.12.1) (2021-12-06)
 
 
