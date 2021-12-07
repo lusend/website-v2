@@ -37,7 +37,7 @@
                       <a href="{{ entry.url }}">{{ entry.key }}</a>&nbsp;
                       <i class="fa fa-chevron-down" aria-hidden="true">&nbsp;</i>
                     </div>
-                    <ul tabindex="0" class="bg-base-100 text-base-content p-1 shadow menu dropdown-content rounded-box w-auto">
+                    <ul tabindex="0" class="bg-base-100 text-base-content p-1 shadow menu dropdown-content rounded-box w-auto max-h-[70vh] overflow-y-auto">
                       {% for child in entry.children %}
                         <li class="px-2 whitespace-nowrap">
                           <a href="{{child.url}}" class="btn btn-ghost rounded-btn justify-start">{{ child.key }}</a>

@@ -45,6 +45,10 @@
       }
     }
 
+    .breadcrumbs > ul {
+      @apply flex-wrap;
+    }
+
     /* Layout Styles */
     #lusend-background {
       @apply min-h-screen bg-cover bg-center bg-no-repeat bg-scroll bg-primary;
