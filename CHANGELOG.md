@@ -1,3 +1,10 @@
+### [1.13.1](https://github.com/lusend/website/compare/v1.13.0...v1.13.1) (2021-12-07)
+
+
+### Bug Fixes
+
+* :sparkles: Added order to fix issue with faculty appearing first in nav ([1bbf4df](https://github.com/lusend/website/commit/1bbf4df8a5a434cc91b81926a64821e942a0d225))
+
 ## [1.13.0](https://github.com/lusend/website/compare/v1.12.1...v1.13.0) (2021-12-07)
 
 
