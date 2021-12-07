@@ -32,16 +32,23 @@
                 {%if entry.children.length === 0 %}
                   <a class="btn btn-ghost rounded-btn" href="{{ entry.url }}">{{entry.key}}</a>
                 {% else %}
-                  <div class="dropdown dropdown-hover dropdown-end">
+                  <div class="dropdown dropdown-hover">
                     <div tabindex="0" class="btn btn-ghost rounded-btn">
                       <a href="{{ entry.url }}">{{ entry.key }}</a>&nbsp;
-                  <i class="fa fa-chevron-down" aria-hidden="true">&nbsp;</i>
+                      <i class="fa fa-chevron-down" aria-hidden="true">&nbsp;</i>
                     </div>
                     <ul tabindex="0" class="bg-base-100 text-base-content p-1 shadow menu dropdown-content rounded-box w-auto">
                       {% for child in entry.children %}
-                        <li class="px-2 whitespace-nowrap text-sm">
-                          <a href="{{child.url}}" class="btn btn-ghost rounded-btn">{{ child.key }}</a>
+                        <li class="px-2 whitespace-nowrap">
+                          <a href="{{child.url}}" class="btn btn-ghost rounded-btn justify-start">{{ child.key }}</a>
                         </li>
+                        {% if child.children.length !== 0 %}
+                          {% for baby in child.children %}
+                            <li class="px-2 whitespace-nowrap">
+                              <a href="{{baby.url}}" class="btn btn-ghost text-xs rounded-btn justify-start">&emsp;&emsp;{{ baby.key }}</a>
+                            </li>
+                          {% endfor %}
+                        {% endif %}
                       {% endfor %}
                     </ul>
                   </div>
