@@ -1,3 +1,10 @@
+## [1.14.0](https://github.com/lusend/website/compare/v1.13.2...v1.14.0) (2021-12-07)
+
+
+### Features
+
+* :sparkles: Added limitchars script to truncate testimonials if desired. Also begain work on the abroad landing page ([8979638](https://github.com/lusend/website/commit/89796387aee7a3276290204e1e4497b8bddd1575))
+
 ### [1.13.2](https://github.com/lusend/website/compare/v1.13.1...v1.13.2) (2021-12-07)
 
 
