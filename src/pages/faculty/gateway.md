@@ -4,7 +4,7 @@ title: Faculty Gateway
 shortTitle: Faculty Gateway
 slug: gateway
 parent: Home
-order: 1
+order: 2
 tags: pages
 options:
   type: site

@@ -42,8 +42,8 @@ const swiperSettings = (id) => `
       },
       autoplay: {
         delay: 4000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true
       }
     });
   })

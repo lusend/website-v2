@@ -27,7 +27,7 @@ options:
 LU Send exists to train Champions for Christ to become global citizens through experiential learning and cultural engagement
 {% endhero %}
 
-:::: section #my-test fullwidth autoheight light 0.7
+:::: section #my-testimonials fullwidth autoheight light 0.7
 
 # Testimonials
 
