@@ -1,3 +1,10 @@
+### [1.13.2](https://github.com/lusend/website/compare/v1.13.1...v1.13.2) (2021-12-07)
+
+
+### Bug Fixes
+
+* :green_heart: Hopefully fixed issue with ReleaseAsset ([a5e0860](https://github.com/lusend/website/commit/a5e0860d3846c7ba05a95f13c2a47b438b1ec625))
+
 ### [1.13.1](https://github.com/lusend/website/compare/v1.13.0...v1.13.1) (2021-12-07)
 
 
