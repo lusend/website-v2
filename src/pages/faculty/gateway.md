@@ -48,7 +48,7 @@ Whether you are planning international travel, domestic travel, or individual tr
 ::: grid 3
 {% button
   image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21518",
-  title="Individual Travel Proposal",
+  title="Indivi&shy;dual Travel Proposal",
   link="https://liberty-sa.terradotta.com/index.cfm?FuseAction=OneStep.Apply&Program_ID=11900",
   center=true,
   btnColor = 'primary',
@@ -59,8 +59,8 @@ Liberty University faculty/staff should register their international travel with
 
 {% button
   image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21520",
-  title="International Travel Proposal",
-  link=link("intproposalprocess"),
+  title="Inter&shy;national Travel Proposal",
+  link=link("intproposal"),
   center=true,
   btnColor = 'secondary',
   btnOutline = false,
@@ -71,7 +71,7 @@ LU Send works with you to develop the educational, cultural, spiritual, and logi
 {% button
   image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21521",
   title="Domestic Travel Proposal",
-  link=link("domproposalprocess"),
+  link=link("domproposal"),
   center=true,
   btnColor = 'accent',
   btnOutline = false,
