@@ -1,3 +1,10 @@
+## [1.15.0](https://github.com/lusend/website/compare/v1.14.0...v1.15.0) (2021-12-09)
+
+
+### Features
+
+* :sparkles: Updated content, along with slight visual style changes ([93ee403](https://github.com/lusend/website/commit/93ee4031e661664f1de5b2a61b54a4b613285185))
+
 ## [1.14.0](https://github.com/lusend/website/compare/v1.13.2...v1.14.0) (2021-12-07)
 
 
