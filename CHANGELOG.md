@@ -1,3 +1,10 @@
+### [1.15.1](https://github.com/lusend/website/compare/v1.15.0...v1.15.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* :bug: Added missing link on individual travel ([948190e](https://github.com/lusend/website/commit/948190ee030710dc12105ee442ec1808bea2b8be))
+
 ## [1.15.0](https://github.com/lusend/website/compare/v1.14.0...v1.15.0) (2021-12-09)
 
 
