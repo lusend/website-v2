@@ -58,7 +58,7 @@ Having the opportunity to go on an LU Send trip to Rwanda was one of the best ex
 :::
 ::::
 
-:::: section #test-lusend
+:::: section #lusend-buttons
 ::: grid 3
 {% button
   image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=26354",

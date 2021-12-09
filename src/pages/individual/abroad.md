@@ -142,39 +142,51 @@ I’d always known I wanted to study abroad, but when the time came to pack my b
 
 ::::
 
-:::: section #test-lusend
-::: grid 3
+:::: section #lusend-buttons
+::: grid 2
 {% button
-  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21518",
-  title="Indivi&shy;dual Travel Proposal",
-  link="https://liberty-sa.terradotta.com/index.cfm?FuseAction=OneStep.Apply&Program_ID=11900",
+  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21493",
+  title="Getting Started & Advising",
+  link=link("started"),
   center=true,
   btnColor = 'primary',
   btnOutline = false,
-  btnText = 'Register Travel' %}
-Liberty University faculty/staff should register their international travel with the University.
+  btnText = 'See More' %}
+How to get started with your study abroad/international internship experience.
 {% endbutton %}
 
 {% button
-  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21520",
-  title="Inter&shy;national Travel Proposal",
-  link=link("intproposal"),
+  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21487",
+  title="Program Process",
+  link=link("process"),
   center=true,
   btnColor = 'secondary',
   btnOutline = false,
   btnText = 'See More' %}
-LU Send works with you to develop the educational, cultural, spiritual, and logistical components of your trip and to ensure exceptional experiences for every Liberty student traveling with the University.
+The study abroad/international internship process from start to finish.
 {% endbutton %}
 
 {% button
-  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21521",
-  title="Domestic Travel Proposal",
-  link=link("domproposal"),
+  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21492",
+  title="Policies, Guidelines & FAQ",
+  link=link("policy"),
   center=true,
   btnColor = 'accent',
   btnOutline = false,
   btnText = 'See More' %}
-LU Send works with you to develop the educational, cultural, spiritual, and logistical components of your trip and to ensure exceptional experiences for every Liberty student traveling with the University.
+Eligibility, fees, registration, courses, deadlines, and more.
 {% endbutton %}
+
+{% button
+  image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21498",
+  title="Browse Programs",
+  link=link("programs"),
+  center=true,
+  btnColor = 'primary',
+  btnOutline = false,
+  btnText = 'See More' %}
+LU Send's Signature Programs, Custom Programs, and International Internships.
+{% endbutton %}
+
 :::
 ::::

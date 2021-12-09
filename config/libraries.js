@@ -27,7 +27,7 @@ const possibleCols = [
 const swiperSettings = (id) => `
 <script>
   $( document ).ready(function() {
-    const swiper = new Swiper("#${id}", {
+    var swiper = new Swiper("#${id}", {
       centeredSlides: true,
       initialSlide: 1,
       loop: true,

@@ -64,7 +64,12 @@ class DateDriver {
 
   public displayDeadlines(
     id: string,
-    { asc = true, dateHeader = 'Dates', deadlineHeader = 'Deadlines' }
+    {
+      asc = true,
+      dateHeader = 'Dates',
+      deadlineHeader = 'Deadlines',
+      showYear = true
+    }
   ) {
     if (!this.deadlinesExist()) this.calculateDeadlines();
     this.sortDeadlines(asc);
@@ -83,7 +88,9 @@ class DateDriver {
         $('<tbody></tbody>').append(
           this.deadlines.map((deadline) =>
             $(`<tr ${deadline.red && `style='color:red;'`}></tr>`).append(
-              $('<td></td>').text(`${deadline.name} (${deadline.year})`),
+              $('<td></td>').text(
+                `${deadline.name} ${showYear ? `(${deadline.year})` : ''}`
+              ),
               $('<td></td>').text(this.formatDate(deadline.date))
             )
           )

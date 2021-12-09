@@ -80,6 +80,29 @@
 {% if options.nav %}
   {% include "scripts/nav.js" ignore missing %}
 {% endif %}
+
 {% include "scripts/plane.js" ignore missing %}
+
+$(document).ready(function () {
+  $('.modal-toggle').on('change', function () {
+    if (this.checked) {
+      $(this).data('scroll', $(document).scrollTop());
+      $(this)
+        .next()
+        .detach()
+        .prependTo('#lusend-important');
+      $(this)
+        .detach()
+        .prependTo('#lusend-important');
+      $(document).scrollTop($(this).data('scroll'));
+      $('body').css('overflow-y', 'hidden');
+      $('html').css('overflow-y', 'hidden');
+    } else {
+      $(document).scrollTop($(this).data('scroll'));
+      $('body').css('overflow-y', 'unset');
+      $('html').css('overflow-y', 'unset');
+    }
+  });
+});
 </script>
 {% endblock %}

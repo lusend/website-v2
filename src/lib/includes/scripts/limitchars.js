@@ -1,5 +1,19 @@
-function generateLimitCharsLink(cls, text) {
-  return `<a class='link ${cls}'>${text}</a>`;
+function generateLimitCharsModal(modalClass, btnText, text) {
+  return $(`<div class='${modalClass}'></div>`).append(
+    $(
+      `<label for='${modalClass}-label' class='link modal-button'></label>`
+    ).html(btnText),
+    `<input type='checkbox' id='${modalClass}-label' class='modal-toggle' />`,
+    $(`<div class='modal'></div>`).append(
+      `<label for='${modalClass}-label' class='w-full h-full absolute m-0 p-0'>&nbsp;</label>`,
+      $(`<div class='modal-box max-h-[70%] overflow-y-auto'></div>`).append(
+        $(`<p></p>`).html(text),
+        $(`<div class='modal-action'></div>`).append(
+          `<label for='${modalClass}-label' class='btn btn-primary'>Close</label>`
+        )
+      )
+    )
+  );
 }
 
 $('.limit-chars').each(function (index) {
@@ -13,24 +27,14 @@ $('.limit-chars').each(function (index) {
   var regex = new RegExp(`.{1,${max}}(\\s|$)`, 'g');
   var someText = allText.match(regex)[0] + ' ... ';
 
-  var linkClass = 'limit-chars-' + index;
-  var textClass = linkClass + '-text';
+  var modalClass = 'limit-chars-' + index;
+  var textClass = modalClass + '-text';
 
   $(this).html('');
   $(this).append($(`<span class='${textClass}'></span>`).html(allText));
 
   if (allText.length > max) {
     $(`.${textClass}`).html(someText);
-    $(this).append(generateLimitCharsLink(linkClass, 'See More'));
+    $(this).append(generateLimitCharsModal(modalClass, 'See More', allText));
   }
-
-  $(`.${linkClass}`).on('click', function () {
-    if ($(this).text() === 'See More') {
-      $(this).text('See Less');
-      $(`.${textClass}`).html(allText);
-    } else {
-      $(this).text('See More');
-      $(`.${textClass}`).html(someText);
-    }
-  });
 });

@@ -39,7 +39,8 @@ class DateDriver {
     {
       asc: asc = !0,
       dateHeader: dateHeader = 'Dates',
-      deadlineHeader: deadlineHeader = 'Deadlines'
+      deadlineHeader: deadlineHeader = 'Deadlines',
+      showYear: showYear = true
     }
   ) {
     this.deadlinesExist() || this.calculateDeadlines(), this.sortDeadlines(asc);
@@ -56,7 +57,9 @@ class DateDriver {
           $('<tbody></tbody>').append(
             this.deadlines.map((deadline) =>
               $(`<tr ${deadline.red && "style='color:red;'"}></tr>`).append(
-                $('<td></td>').text(`${deadline.name} (${deadline.year})`),
+                $('<td></td>').text(
+                  `${deadline.name} ${showYear ? `(${deadline.year})` : ''}`
+                ),
                 $('<td></td>').text(this.formatDate(deadline.date))
               )
             )

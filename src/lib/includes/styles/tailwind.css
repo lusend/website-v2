@@ -101,7 +101,7 @@
     }
 
     #lusend-sidebar {
-      @apply hidden flex-initial  max-w-xs 2xl:max-w-md pt-10 sticky h-screen top-0 lg:flex lg:flex-col lg:items-center;
+      @apply hidden flex-initial  max-w-xs 2xl:max-w-md py-10 sticky h-screen top-0 lg:flex lg:flex-col lg:items-center;
     }
 
     #lusend-content {
@@ -183,6 +183,10 @@
 
     .swiper-slide {
       @apply max-w-sm lg:max-w-md;
+    }
+
+    .swiper-slide * {
+      user-select: none;
     }
 
     #lusend-nav-scroll.drawer-content {
