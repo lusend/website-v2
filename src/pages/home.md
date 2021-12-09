@@ -74,7 +74,7 @@ At LU Send, we want students, faculty, and alumni at Liberty to have the opportu
 {% button
   image="https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=21406",
   title="Individual Travel",
-  link=link("bro"),
+  link=link("abroad"),
   center=true,
   btnColor = 'secondary',
   btnOutline = false,
