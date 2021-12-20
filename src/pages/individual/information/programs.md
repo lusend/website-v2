@@ -83,6 +83,7 @@ Participating in these internships provide tangible ways to gain hands on profes
 - [GVI – Global Vision International](https://www.gviusa.com/)
 - [SIM](https://www.simusa.org/)
 - [Campus B - Brazil](https://campusb.org/students/)
+- [Intern Abroad HQ](https://www.internhq.com/)
 
 _NOTE: Students **cannot** use Liberty awarded scholarships or outside loans, scholarships, and grants for program cost. For more information on International Internship Program specifics please see the [Policies & Guidelines]({{ link('policy') }}) and the [FAQ]({{ link('policy') }}#faq)._
 
