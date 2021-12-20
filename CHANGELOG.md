@@ -1,3 +1,10 @@
+## [1.16.0](https://github.com/lusend/website/compare/v1.15.1...v1.16.0) (2021-12-20)
+
+
+### Features
+
+* **content:** ✨ Added Intern Abroad HQ as another viable internship option ([b9d0554](https://github.com/lusend/website/commit/b9d055407be37b9ac07bcc6c3d0784275d848cae))
+
 ### [1.15.1](https://github.com/lusend/website/compare/v1.15.0...v1.15.1) (2021-12-09)
 
 
