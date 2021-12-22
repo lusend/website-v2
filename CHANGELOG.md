@@ -1,3 +1,10 @@
+### [1.17.1](https://github.com/lusend/website/compare/v1.17.0...v1.17.1) (2021-12-22)
+
+
+### Bug Fixes
+
+* :green_heart: Fixed bug in CI that kept test site files from release output ([e0337c3](https://github.com/lusend/website/commit/e0337c35465601934d0ebad4cbf4581d41288933))
+
 ## [1.17.0](https://github.com/lusend/website/compare/v1.16.0...v1.17.0) (2021-12-22)
 
 
