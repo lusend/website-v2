@@ -136,7 +136,8 @@
               "path": "dist/**/*"
             },
             {
-              "path": "disttest"
+              "path": "disttest/*",
+              "name": "test-site-files"
             }
           ]
         }
