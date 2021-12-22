@@ -1,3 +1,10 @@
+## [1.17.0](https://github.com/lusend/website/compare/v1.16.0...v1.17.0) (2021-12-22)
+
+
+### Features
+
+* :sparkles: Created test website with proper logo ([6a5ac3d](https://github.com/lusend/website/commit/6a5ac3d078e3ddf3c0eb183fd6486cf470a64295))
+
 ## [1.16.0](https://github.com/lusend/website/compare/v1.15.1...v1.16.0) (2021-12-20)
 
 
