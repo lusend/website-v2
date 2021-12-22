@@ -1,3 +1,10 @@
+### [1.17.2](https://github.com/lusend/website/compare/v1.17.1...v1.17.2) (2021-12-22)
+
+
+### Bug Fixes
+
+* :green_heart: Tried another fix for the ci build ([0fdcc52](https://github.com/lusend/website/commit/0fdcc52e9453246066bf0dcb198d98433f36cf34))
+
 ### [1.17.1](https://github.com/lusend/website/compare/v1.17.0...v1.17.1) (2021-12-22)
 
 
