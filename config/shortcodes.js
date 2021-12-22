@@ -5,10 +5,13 @@ const postcssNested = require('postcss-nested');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 const { markdown } = require('./libraries');
-const { logo } = require('../src/lib/includes/snippets');
+const { logo, testlogo } = require('../src/lib/includes/snippets');
 
-const { NODE_ENV } = process.env;
+const { TEST } = process.env;
 let CAPTURES;
+
+const logoSVG = ({ classes = '' }) =>
+  TEST ? testlogo(classes) : logo(classes);
 
 // set a before capture. Only necessary when in dev for watch/serve
 const beforeCapture = function () {
@@ -64,7 +67,9 @@ const hero = function (
     darkbg ? 'bg-black text-primary-content' : 'bg-base-100 text-base-content'
   }" style="--tw-bg-opacity: ${opacity};">
   <div class="flex flex-col items-center text-center w-3/4 hero-content">
-  ${image === 'logo' ? logo : `<img src="${image}" />`}
+  ${
+    image === 'logo' ? logoSVG({ classes: 'w-full' }) : `<img src="${image}" />`
+  }
   <p class="mb-5 ${txtlarge ? 'text-5xl' : ''}">
     ${renderedContent}
   </p>
@@ -187,5 +192,6 @@ module.exports = {
   button,
   testimonial,
   year,
-  modal
+  modal,
+  logo: logoSVG
 };

@@ -11,9 +11,10 @@ const {
   button,
   testimonial,
   year,
-  modal
+  modal,
+  logo
 } = require('./config/shortcodes');
-const { NODE_ENV, TRANSFORM } = process.env;
+const { NODE_ENV, TRANSFORM, TEST } = process.env;
 
 module.exports = function (config) {
   config.on('beforeBuild', beforeCapture);
@@ -24,6 +25,7 @@ module.exports = function (config) {
   config.addPairedShortcode('modal', modal);
   config.addShortcode('display', display);
   config.addShortcode('year', year);
+  config.addShortcode('logo', logo);
 
   config.addPairedNunjucksAsyncShortcode('cssprocessor', cssprocessor);
 
@@ -57,7 +59,7 @@ module.exports = function (config) {
   return {
     dir: {
       input: 'src',
-      output: 'dist',
+      output: TEST ? 'disttest' : 'dist',
       includes: 'lib/includes',
       layouts: 'lib/layouts',
       data: 'lib/data'

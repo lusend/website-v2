@@ -7,13 +7,16 @@
   "scripts": {
     "start": "npm run dev",
     "release": "semantic-release",
+    "buildtest": "NODE_ENV=production TEST=true eleventy",
     "build": "NODE_ENV=production eleventy",
     "dev": "NODE_ENV=development eleventy --serve --quiet",
     "clean": "rm -Rf dist",
+    "cleantest": "rm -Rf disttest",
     "debug:dev": "DEBUG=* NODE_ENV=development eleventy",
     "debug:prod": "DEBUG=* NODE_ENV=production eleventy",
     "predev": "npm run clean",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "prebuildtest": "npm run cleantest"
   },
   "keywords": [],
   "author": "",
@@ -131,6 +134,9 @@
           "assets": [
             {
               "path": "dist/**/*"
+            },
+            {
+              "path": "disttest"
             }
           ]
         }
