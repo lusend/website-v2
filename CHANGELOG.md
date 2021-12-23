@@ -1,3 +1,11 @@
+### [1.17.5](https://github.com/lusend/website/compare/v1.17.4...v1.17.5) (2021-12-23)
+
+
+### Bug Fixes
+
+* :green_heart: Trying a glob pattern for test site files ([c1b59e3](https://github.com/lusend/website/commit/c1b59e3cd4420d334d8e2984b2c135b342ada9bb))
+* :green_heart: Updated zip settings to fix bug (🤞) ([2bd7454](https://github.com/lusend/website/commit/2bd7454857c1685d9dcd1b06441b52dbe2be2bf3))
+
 ### [1.17.4](https://github.com/lusend/website/compare/v1.17.3...v1.17.4) (2021-12-23)
 
 
