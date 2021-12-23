@@ -1,3 +1,10 @@
+### [1.17.3](https://github.com/lusend/website/compare/v1.17.2...v1.17.3) (2021-12-23)
+
+
+### Bug Fixes
+
+* :green_heart: Added zip step to build ci ([8d0f40b](https://github.com/lusend/website/commit/8d0f40befa58febf36fe8982b1beab6fa785ce26))
+
 ### [1.17.2](https://github.com/lusend/website/compare/v1.17.1...v1.17.2) (2021-12-22)
 
 
