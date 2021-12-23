@@ -1,3 +1,10 @@
+### [1.17.4](https://github.com/lusend/website/compare/v1.17.3...v1.17.4) (2021-12-23)
+
+
+### Bug Fixes
+
+* :green_heart: Zip was invalid. Trying a change to directory ([85fd1bf](https://github.com/lusend/website/commit/85fd1bfe72618c7ccdcd27f59733acf0d8a44d18))
+
 ### [1.17.3](https://github.com/lusend/website/compare/v1.17.2...v1.17.3) (2021-12-23)
 
 

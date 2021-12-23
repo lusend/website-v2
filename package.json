@@ -1,6 +1,6 @@
 {
   "name": "lusend-website",
-  "version": "1.17.3",
+  "version": "1.17.4",
   "description": "LU Send's Website Files",
   "main": "index.js",
   "private": true,
