@@ -1,3 +1,10 @@
+### [1.17.6](https://github.com/lusend/website/compare/v1.17.5...v1.17.6) (2021-12-23)
+
+
+### Bug Fixes
+
+* :bug: Removed hardcoded logo from footer ([858c708](https://github.com/lusend/website/commit/858c708ff818bbf9b608e884256a7bfc0857e405))
+
 ### [1.17.5](https://github.com/lusend/website/compare/v1.17.4...v1.17.5) (2021-12-23)
 
 
