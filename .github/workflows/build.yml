@@ -30,8 +30,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'test-site-files.zip'
-          path: '../disttest'
-          directory: './dist'
+          path: './disttest'
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

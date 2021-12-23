@@ -134,6 +134,10 @@
           "assets": [
             {
               "path": "dist/**/*"
+            },
+            {
+              "path": "test-site-files.zip",
+              "label": "Test Site Files"
             }
           ]
         }
