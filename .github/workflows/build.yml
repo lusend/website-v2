@@ -29,8 +29,8 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          filename: 'test-site-files.zip'
-          path: './disttest/**/*'
+          filename: '../test-site-files.zip'
+          directory: './disttest'
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
