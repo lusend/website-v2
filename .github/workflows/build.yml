@@ -25,6 +25,13 @@ jobs:
         run: npm run build
       - name: Build Test Website
         run: npm run buildtest
+      - name: Create Test Zip File
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          filename: 'test-site-files.zip'
+          path: '../disttest'
+          directory: './dist'
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
