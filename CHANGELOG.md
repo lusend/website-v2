@@ -1,3 +1,10 @@
+## [1.20.0](https://github.com/lusend/website/compare/v1.19.0...v1.20.0) (2022-01-05)
+
+
+### Features
+
+* :sparkles: Added coordinator keyboard binding to map ([38da945](https://github.com/lusend/website/commit/38da9456975761814ce2f9718ca7cf53edd9cd99))
+
 ## [1.19.0](https://github.com/lusend/website/compare/v1.18.0...v1.19.0) (2022-01-05)
 
 
