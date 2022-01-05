@@ -1,3 +1,10 @@
+## [1.19.0](https://github.com/lusend/website/compare/v1.18.0...v1.19.0) (2022-01-05)
+
+
+### Features
+
+* :sparkles: Added more info on map when admin ([7fd11a5](https://github.com/lusend/website/commit/7fd11a587e11628fa567ec0048255af1c08f6adb))
+
 ## [1.18.0](https://github.com/lusend/website/compare/v1.17.6...v1.18.0) (2022-01-05)
 
 
