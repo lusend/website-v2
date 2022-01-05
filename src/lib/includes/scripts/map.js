@@ -71,6 +71,7 @@ Mousetrap.bind('alt+1', function () {
   });
 });
 
+/* Will automatically search for a coordinator's trip based on the Coordinator Lookup Parameter */
 function searchCoordinator(e, combo) {
   __async(this, null, function* () {
     mapDriver.toggleShowID(true);
@@ -84,6 +85,7 @@ function searchCoordinator(e, combo) {
   });
 }
 
+/* Binds each letter to a possible coordinator */
 'abcdefghijklmnopqrstuvwxyz'
   .split('')
   .forEach((letter) => Mousetrap.bind(letter, searchCoordinator));
