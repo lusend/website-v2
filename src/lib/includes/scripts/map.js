@@ -71,6 +71,23 @@ Mousetrap.bind('alt+1', function () {
   });
 });
 
+function searchCoordinator(e, combo) {
+  __async(this, null, function* () {
+    mapDriver.toggleShowID(true);
+
+    try {
+      tdDriver.searchIn('11049').for(combo).makeTemporary();
+      afterSubmit([{ id: 'p_11049', value: combo }]);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+}
+
+'abcdefghijklmnopqrstuvwxyz'
+  .split('')
+  .forEach((letter) => Mousetrap.bind(letter, searchCoordinator));
+
 (function () {
   __async(this, null, function* () {
     /* Iniitialize all map driver scripts and listeners */
@@ -102,10 +119,12 @@ Mousetrap.bind('alt+1', function () {
     tdDriver.registerSearchElement('ProgramType').makePrivate();
     tdDriver.registerSearchElement('Term').makePrivate(); // Official Terms
     tdDriver.registerSearchElement('11009').makePrivate(); // LU Send Map
+    tdDriver.registerSearchElement('11049').makePrivate(); // Coordinator
 
     /* Solidifies registered search elements */
     try {
       yield tdDriver.confirmSearchElements();
+      console.log(tdDriver.searchElements);
     } catch (e) {
       console.error(e);
     }

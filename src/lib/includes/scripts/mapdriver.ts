@@ -127,8 +127,9 @@ class MapDriver {
     await loader.load();
   }
 
-  public toggleShowID() {
-    this.showID = !this.showID;
+  public toggleShowID(state: boolean | undefined = undefined) {
+    this.showID = state !== undefined ? state : !this.showID;
+    return this.showID;
   }
 
   protected closeInfoWindow() {

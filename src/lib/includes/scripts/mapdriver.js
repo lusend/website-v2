@@ -88,8 +88,9 @@ class MapDriver {
       yield loader.load();
     });
   }
-  toggleShowID() {
-    this.showID = !this.showID;
+  toggleShowID(state = undefined) {
+    this.showID = state !== undefined ? state : !this.showID;
+    return this.showID;
   }
   closeInfoWindow() {
     this.lastMarker &&
