@@ -288,10 +288,15 @@ Mousetrap.bind('alt+1', function () {
 
     /* Create the search bar */
     try {
+      var title = 'Search Programs';
+      if ($('#pagenav a:contains(Admin Console)').length >= 1) {
+        title += ' (or press Alt+1)';
+      }
+
       yield mapDriver.addSelectize(
         'TOP_LEFT',
         tdDriver.searchElements,
-        'Search Programs',
+        title,
         'lusend-search',
         afterSubmit
       );
