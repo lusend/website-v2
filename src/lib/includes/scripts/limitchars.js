@@ -1,4 +1,4 @@
-function generateLimitCharsModal(modalClass, btnText, text) {
+function generateLimitCharsModal(modalClass, btnText, text, subtitle) {
   return $(`<div class='${modalClass}'></div>`).append(
     $(
       `<label for='${modalClass}-label' class='link modal-button'></label>`
@@ -8,6 +8,7 @@ function generateLimitCharsModal(modalClass, btnText, text) {
       `<label for='${modalClass}-label' class='w-full h-full absolute m-0 p-0'>&nbsp;</label>`,
       $(`<div class='modal-box max-h-[70%] overflow-y-auto'></div>`).append(
         $(`<p></p>`).html(text),
+        $(`<div></div>`).html(subtitle),
         $(`<div class='modal-action'></div>`).append(
           `<label for='${modalClass}-label' class='btn btn-primary'>Close</label>`
         )
@@ -26,6 +27,10 @@ $('.limit-chars').each(function (index) {
       .replace(/\n {2,}/g, ' ') + ' ';
   var regex = new RegExp(`.{1,${max}}(\\s|$)`, 'g');
   var someText = allText.match(regex)[0] + ' ... ';
+  var possibleTitle =
+    ($(this).siblings('.limit-chars-title').html() || '')
+      .trim()
+      .replace(/\n {2,}/g, ' ') + ' ';
 
   var modalClass = 'limit-chars-' + index;
   var textClass = modalClass + '-text';
@@ -35,6 +40,8 @@ $('.limit-chars').each(function (index) {
 
   if (allText.length > max) {
     $(`.${textClass}`).html(someText);
-    $(this).append(generateLimitCharsModal(modalClass, 'See More', allText));
+    $(this).append(
+      generateLimitCharsModal(modalClass, 'See More', allText, possibleTitle)
+    );
   }
 });
