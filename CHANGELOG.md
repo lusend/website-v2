@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/lusend/website/compare/v1.17.6...v1.18.0) (2022-01-05)
+
+
+### Features
+
+* :sparkles: Added subtitle to expanded testimonial modal ([5194183](https://github.com/lusend/website/commit/51941839c8d7a7e53cdc76e86f9842d6f255e5ba))
+
 ### [1.17.6](https://github.com/lusend/website/compare/v1.17.5...v1.17.6) (2021-12-23)
 
 
