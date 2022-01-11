@@ -7,13 +7,13 @@
   "scripts": {
     "start": "npm run dev",
     "release": "semantic-release",
-    "buildtest": "NODE_ENV=production TEST=true eleventy",
-    "build": "NODE_ENV=production eleventy",
-    "dev": "NODE_ENV=development eleventy --serve --quiet",
+    "buildtest": "NODE_ENV=production TEST=true eleventy --incremental",
+    "build": "NODE_ENV=production eleventy --incremental",
+    "dev": "NODE_ENV=development eleventy --incremental --serve --quiet",
     "clean": "rm -Rf dist",
     "cleantest": "rm -Rf disttest",
-    "debug:dev": "DEBUG=* NODE_ENV=development eleventy",
-    "debug:prod": "DEBUG=* NODE_ENV=production eleventy",
+    "debug:dev": "DEBUG=* NODE_ENV=development eleventy --incremental",
+    "debug:prod": "DEBUG=* NODE_ENV=production eleventy --incremental",
     "predev": "npm run clean",
     "prebuild": "npm run clean",
     "prebuildtest": "npm run cleantest"
