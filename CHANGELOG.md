@@ -1,3 +1,15 @@
+## [1.21.0](https://github.com/lusend/website/compare/v1.20.0...v1.21.0) (2022-01-11)
+
+
+### Features
+
+* :sparkles: Added new testimonials ([eff7830](https://github.com/lusend/website/commit/eff7830f6ac10c746924620fc21dc0dc791b1116))
+
+
+### Documentation
+
+* :memo: Added comments to map ([2278ccd](https://github.com/lusend/website/commit/2278ccdbc5184c7ccf03b605a001ec0ca254de67))
+
 ## [1.20.0](https://github.com/lusend/website/compare/v1.19.0...v1.20.0) (2022-01-05)
 
 
