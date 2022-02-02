@@ -1,3 +1,10 @@
+## [1.22.0](https://github.com/lusend/website/compare/v1.21.0...v1.22.0) (2022-02-02)
+
+
+### Features
+
+* :sparkles: Updated wording to proposals ([ab83133](https://github.com/lusend/website/commit/ab83133e07dd4f2ff9f8158d4f81214e4397a2ed))
+
 ## [1.21.0](https://github.com/lusend/website/compare/v1.20.0...v1.21.0) (2022-01-11)
 
 
