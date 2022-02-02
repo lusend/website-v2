@@ -44,7 +44,7 @@ All of the proposal dates are hard deadlines. Deadlines will appear in red 30 da
 
 ![Filler Header Image](https://liberty-sa.terradotta.com/_customtags/ct_Image.cfm?Image_ID=26354){.header}
 
-As faculty, you are integrally involved in equipping Liberty students to be fully prepared to meet their futures in a globalizing marketplace. LU Send works with you to create cross-cultural opportunities that contribute to your students’ development as lifelong learners and Champions for Christ, wherever their journey takes them.
+As faculty, your involvement is integral in equipping Liberty students to be fully prepared to meet their futures in a globalizing marketplace. LU Send works with you to create cross-cultural opportunities that contribute to your students’ development as lifelong learners and Champions for Christ, wherever their journey takes them.
 
 :::
 
@@ -58,7 +58,7 @@ Practices Guide](https://liberty-sa.terradotta.com/_customtags/ct_FileRetrieve.c
 
 ::: div prose
 
-Please contact Audrey Hammond, Director of Academic Operations, by [email](mailto:agbeman@liberty.edu) or by phone (434-592-4204), to learn more about the proposal process.
+Please contact Audrey Hammond, Director of Development, by [email](mailto:agbeman@liberty.edu) or by phone (434-592-4204), to learn more about the proposal process.
 
 LU Send will communicate the proposal’s approval status to the faculty/staff lead. Approved proposals will be moved into the trip development process.
 

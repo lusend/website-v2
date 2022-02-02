@@ -62,7 +62,7 @@ Practices Guide](https://liberty-sa.terradotta.com/_customtags/ct_FileRetrieve.c
 
 ::: div prose
 
-Please contact Elizabeth Smith, Domestic Trip Coordinator, by [email](mailto:emacy@liberty.edu) or by phone (434-582-2496), to learn more about the proposal process.
+Please contact Audrey Hammond, Director of Development, by [email](mailto:agbeman@liberty.edu) or by phone (434-592-4204), to learn more about the proposal process.
 
 For all other inquiries, please email [lusend@liberty.edu](mailto:lusend@liberty.edu).
 
@@ -78,12 +78,12 @@ _Under no circumstances should faculty be leading students off-campus without fi
 
 ### Excused Absence Requests for Local/Day trips less than 50 miles from Liberty University.
 
-- Each department/club will designate one person to collect all excused absence requests in a spreadsheet format provided to them by the Provost office. All local (less than 50 miles) and day trip requests should be approved by the Dean or Club’s faculty Advisor, and sent directly to the Provost office for final approval in the provided format. Please email the Vice-Provost Dr. Ron Hawkins at [rehawkins@liberty.edu](mailto:rehawkin@liberty.edu) for more info.
+- Each department/club will designate one person to disperse all excused absence requests to students who in turn will provide this request to necessary professors and/or other faculty/staff. All local (less than 50 miles) and day trip requests should be approved by the Dean or Club’s faculty Advisor, and sent directly to the Provost office for final approval in the provided format.
 - All forms must be approved by the Dean of the faculty member’s department prior to being processed.
 
 ### Overnight and/or more than 50 miles from Liberty University
 
-All excused absences that are overnight or outside of 50 miles from Liberty’s campus are to be submitted to LU Send directly (one month before departure) in order to process excused absences, Assumption of Risk forms, and out of bed requests for the following reasons:
+All excused absences that are overnight or outside of 50 miles from Liberty’s campus can be found within the application for a student to download, fill out, and provide to necessary professors and/or other faculty/staff. These requirements exist for the following reasons:
 
 - These trips are required to meet certain university standards that LU Send will ensure are clearly communicated to faculty, and policies and procedures are being met.
 - These trips require the student to sign an Assumption of Risk Form. LU Send will work with the faculty and student to make sure this is taken care of.
